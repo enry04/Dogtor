@@ -38,7 +38,7 @@ admin
 prenotazione -> animale, accompagnatore, motivazione, descrizione, data, ora;
 visita effettuata -> diagnosi, cura, prezzo;
 
-# Progettazione logic
+# Progettazione logica
 
 tAnimale -> id (PRIMARY KEY), nome, dataNascita, luogoNascita, luogoResidenza, specie, razza;
 tUtente -> id (PRIMARY KEY), nome, cognome, username, idIndirizzo(FOREIGN KEY), codiceFiscale, tipologia(admin, medico, accompagnatore, proprietario);
@@ -46,3 +46,18 @@ tIndirizzo -> id(PRIMARY KEY), CAP, via, numero civico;
 tTelefono -> id(PRIMARY KEY), numero, idUtente(FOREIGN KEY);
 tPrenotazione -> id(PRIMARY KEY), idAnimale(FOREIGN KEY), idAccompagnatore/proprietario(FOREIGN KEY), motivazione, descrizione, nota, data, ora, stato(confermata, da confermare o annullata), gravità(se urgente o meno);
 tRisultato(risultato della visita) -> id(PRIMARY KEY), idPrenotazione(FOREIGN KEY), motivazione, diagnosi, cura, prezzo;
+
+# Palette
+
+Background -> #fffffe
+Headline -> #272343
+paragraph -> #2d334a
+button -> #ffd803
+button text -> #272343
+stroke -> #272343
+main -> #fffffe
+highlight -> #ffd803
+secondary -> #e3f6f5
+tertiary -> #bae8e8
+
+
