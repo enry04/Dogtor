@@ -6,7 +6,7 @@ Di ogni persona si vuole registrare nome, cognome, codice fiscale, uno o più nu
 
 C'è la possibilità di registrare non solo cani (specie e razza diverse). Operazioni sui cani più agevolate rispetto alle altre specie.
 
-Prenotazione raggiungibile dalla pagina principale. Per la prenotazione: informazioni della persona accompagnatrice, informazioni dell' animale, unconfermato menu con i problemi piu comuni (indigestione, ferita, trauma...), una descrizione più dettagliata di esso e se urgente o meno.Dopo aver  si vede l' elenco di disponibilità (limitato) in ordine cronologico  per effettuare la visita.
+Prenotazione raggiungibile dalla pagina principale. Per la prenotazione: informazioni della persona accompagnatrice, informazioni dell' animale, un menu con i problemi piu comuni (indigestione, ferita, trauma...), una descrizione più dettagliata di esso e se urgente o meno.Dopo aver prenotato si vede l' elenco di disponibilità (limitato) in ordine cronologico  per effettuare la visita.
 
 Sistema di login per agevolare il riconoscimento dell' animale e della persona. Una persona può essere proprietaria e/o accompagnatrice di più animali, e ogni animale può avere più persone associate.
 
@@ -35,6 +35,12 @@ Entità:
 
 animale/soggetto -> nome, dataNascita, luogoNascita, luogoResidenza, id, specie, razza;
 accompagnatore/proprietario/utente -> nome, cognome, indirizzo, telefoni;
+medico -> username, password, nome, cognome;
+admin 
+prenotazione -> animale, accompagnatore, motivazione, descrizione, data, ora;
+visita effettuata -> diagnosi, cura, prezzo;
+
+
 
 
 
