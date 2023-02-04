@@ -40,6 +40,8 @@ admin
 prenotazione -> animale, accompagnatore, motivazione, descrizione, data, ora;
 visita effettuata -> diagnosi, cura, prezzo;
 
+# Progettazione logica
+
 
 
 
