@@ -1,0 +1,34 @@
+header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.logo-container {
+  background: url("../images/logo.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 150px;
+  height: 150px;
+}
+
+.right-header-container {
+  padding-left: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  text-align: center;
+}
+
+.header-option {
+  color: #272343;
+}
+
+.active-page,
+.header-option:hover {
+  color: #272343;
+  text-decoration: underline #272343;
+  text-underline-offset: 9px;
+}

@@ -1,0 +1,43 @@
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body{
+    background-color: #fffffe;
+    margin: 0 2%;
+    font-family: proxima-nova, sans-serif;
+}
+
+h2{
+  font-size: 36px;
+}
+
+h3 {
+  font-size: 32px;
+}
+
+h4 {
+  font-size: 28px;
+}
+
+h5 {
+  font-size: 22px;
+}
+
+h6 {
+  font-size: 18px;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+@font-face {
+  font-family: proxima-nova;
+  src: url("../font/ProximaNova-Regular.otf");
+}
