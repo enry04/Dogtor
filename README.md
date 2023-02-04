@@ -59,5 +59,3 @@ main -> #fffffe
 highlight -> #ffd803
 secondary -> #e3f6f5
 tertiary -> #bae8e8
-
-
