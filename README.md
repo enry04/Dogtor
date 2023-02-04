@@ -34,7 +34,7 @@ se gli utenti stanno usando correttamente il software.)??
 Entità:
 
 animale/soggetto -> nome, dataNascita, luogoNascita, luogoResidenza, id, specie, razza;
-accompagnatore/proprietario/utente -> nome, cognome, indirizzo, telefoni;
+accompagnatore/proprietario/utente -> nome, cognome, indirizzo, telefoni, codice fiscale;
 medico -> username, password, nome, cognome;
 admin 
 prenotazione -> animale, accompagnatore, motivazione, descrizione, data, ora;
