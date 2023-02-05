@@ -1,6 +1,6 @@
 header {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -11,12 +11,14 @@ header {
   background-size: contain;
   width: 150px;
   height: 150px;
+  min-width: 100px;
+  min-height: 100px;
 }
 
 .right-header-container {
-  padding-left: 40%;
+  width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   gap: 80px;
   text-align: center;
