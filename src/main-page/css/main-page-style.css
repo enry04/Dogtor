@@ -1,0 +1,8 @@
+.dog-container{
+    background: url("../../common/images/dog.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 622px;
+    height: 591px;
+}

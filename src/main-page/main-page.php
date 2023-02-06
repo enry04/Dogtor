@@ -18,6 +18,11 @@
     $active = 'class="active-page"';
     require('../common/php/header.php');
     ?>
+
+    <main>
+        <div class="dog-container"></div>
+    </main>
+
 </body>
 
 </html>
