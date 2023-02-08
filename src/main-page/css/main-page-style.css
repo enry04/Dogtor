@@ -1,0 +1,27 @@
+main{
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 75px;
+}
+
+.text-container{
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 40px;
+    padding-bottom: 40px;
+    margin-right: -30px;
+    margin-bottom: 40px;
+}
+
+.dog-container{
+    background: url("../../common/images/dog.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 622px;
+    height: 591px;
+    align-self: flex-start;
+}
