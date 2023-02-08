@@ -41,7 +41,7 @@ visita effettuata -> diagnosi, cura, prezzo;
 # Progettazione logica
 
 tAnimale -> id (PRIMARY KEY), nome, dataNascita, luogoNascita, luogoResidenza, specie, razza;
-tUtente -> id (PRIMARY KEY), nome, cognome, username, idIndirizzo(FOREIGN KEY), codiceFiscale, tipologia(admin, medico, accompagnatore, proprietario);
+tUtente -> id (PRIMARY KEY), nome, cognome, username, password, mail, idIndirizzo(FOREIGN KEY), codiceFiscale, tipologia(admin, medico, accompagnatore, proprietario);
 tIndirizzo -> id(PRIMARY KEY), CAP, via, numero civico;
 tTelefono -> id(PRIMARY KEY), numero, idUtente(FOREIGN KEY);
 tPrenotazione -> id(PRIMARY KEY), idAnimale(FOREIGN KEY), idAccompagnatore/proprietario(FOREIGN KEY), motivazione, descrizione, nota, data, ora, stato(confermata, da confermare o annullata), gravità(se urgente o meno);

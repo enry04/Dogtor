@@ -1,0 +1,26 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.back-container {
+  position: absolute;
+  top: 1.5%;
+  left: 1%;
+  cursor: pointer;
+  background: url("../../common/images/back-logo.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 70px;
+  height: 70px;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}

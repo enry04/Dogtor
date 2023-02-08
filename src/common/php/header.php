@@ -8,7 +8,7 @@
             <a <?= ($page == "prenote") ? $active : '' ?> class="header-option" href=""> Prenota visita </a>
         </h4>
         <h4>
-            <a <?= ($page == "login") ? $active : '' ?> class="header-option" href=""> Accedi </a>
+            <a <?= ($page == "login") ? $active : '' ?> class="header-option" href="../login-page/login-page.php"> Accedi </a>
         </h4>
     </div>
 </header>
