@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Creato il: Feb 05, 2023 alle 20:22
+-- Creato il: Feb 09, 2023 alle 13:18
 -- Versione del server: 10.4.27-MariaDB
 -- Versione PHP: 8.0.25
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `dogtor`
+-- Database: `vetvisentin`
 --
 
 -- --------------------------------------------------------
@@ -34,7 +34,10 @@ CREATE TABLE `tAnimale` (
   `luogoNascita` varchar(100) NOT NULL,
   `luogoResidenza` varchar(100) NOT NULL,
   `specie` varchar(100) NOT NULL,
-  `razza` varchar(100) NOT NULL
+  `razza` varchar(100) NOT NULL,
+  `idProprietario` int(11) NOT NULL,
+  `nomeAccompagnatore` varchar(100) DEFAULT NULL,
+  `cognomeAccompagnatore` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -59,7 +62,6 @@ CREATE TABLE `tIndirizzo` (
 CREATE TABLE `tPrenotazione` (
   `id` int(11) NOT NULL,
   `idAnimale` int(11) NOT NULL,
-  `idAccompagnatore` int(11) NOT NULL,
   `motivazione` varchar(1000) NOT NULL,
   `descrizione` varchar(1000) NOT NULL,
   `nota` varchar(1000) DEFAULT NULL,
@@ -109,7 +111,8 @@ CREATE TABLE `tUtente` (
   `username` varchar(100) NOT NULL,
   `idIndirizzo` int(11) NOT NULL,
   `codiceFiscale` varchar(100) NOT NULL,
-  `tipologia` varchar(100) NOT NULL
+  `tipologia` varchar(100) NOT NULL,
+  `numeroTelefonoPrincipale` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -151,7 +154,8 @@ ALTER TABLE `tTelefono`
 --
 ALTER TABLE `tUtente`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `codiceFiscale` (`codiceFiscale`);
+  ADD UNIQUE KEY `codiceFiscale` (`codiceFiscale`),
+  ADD UNIQUE KEY `numeroTelefonoPrincipale` (`numeroTelefonoPrincipale`);
 
 --
 -- AUTO_INCREMENT per le tabelle scaricate
