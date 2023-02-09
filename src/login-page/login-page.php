@@ -35,7 +35,7 @@
             <div class="separate-line"></div>
             <div class="registration-container">
                 <h5>
-                    <a href="">Non hai un account?<br>Clicca qui</a>
+                    <a href="../register-page/register-page.php">Non hai un account?<br>Clicca qui</a>
                 </h5>
             </div>
         </section>
