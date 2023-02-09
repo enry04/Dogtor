@@ -18,10 +18,11 @@ header {
 
 .right-header-container {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   padding-right: 115px;
   gap: 140px;
+  width: 50%;
   text-align: center;
 }
 
