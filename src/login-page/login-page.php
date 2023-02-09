@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../common/css/page-style.css">
     <link rel="stylesheet" href="../common/css/header-style.css">
     <link rel="stylesheet" href="./css/login-page-style.css">
+    <link rel="stylesheet" href="../common/css/form-style.css">
     <link rel="icon" href="../common/images/page-logo.png">
     <title>Dogtor</title>
 </head>
@@ -24,7 +25,7 @@
             <h4>
                 Effettua il login
             </h4>
-            <div class="login-container">
+            <div class="form-container">
                 <form method="post">
                     <input type="email" placeholder="E-mail" class="email-text" required>
                     <input type="text" placeholder="Username" class="username-text" required>

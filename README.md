@@ -59,3 +59,23 @@ main -> #fffffe
 highlight -> #ffd803
 secondary -> #e3f6f5
 tertiary -> #bae8e8
+
+**Register form**
+
+Nome -> text (no num)
+cognome -> text (no num)
+username -> text
+password-> password
+mail -> mail
+CAP -> number
+Via -> text (no num)
+N civico -> number
+codiceFiscale -> text
+telefono principale -> number
+telefoni secondari -> number
+
+Nome       cognome 
+username   password
+codice     mail
+Cap    Via Ncivico
+Telefono + telefoni(opzionale)

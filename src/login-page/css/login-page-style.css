@@ -6,45 +6,6 @@ main > section {
   margin-top: 80px;
 }
 
-.login-container > :first-child {
-  margin-top: 50px;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 50px;
-  justify-content: center;
-  align-items: center;
-}
-
-input {
-  width: 400px;
-  height: 45px;
-  border: solid #272343 2px;
-  border-radius: 10px;
-  padding: 0px 10px 0px 10px;
-  outline: 0;
-  font-size: 17px;
-  color: #272343;
-}
-
-input[type="submit"] {
-  background-color: #ffd803;
-  color: #272343;
-  cursor: pointer;
-}
-
-input:hover::placeholder,
-input:focus::placeholder {
-  color: #272343;
-}
-
-input:hover,
-input:not(input[type="submit"]):focus,
-input:not(input[type="submit"]):valid{
-  box-shadow: 0 5px 15px -10px rgba(31, 18, 53, 0.6);
-}
 
 .registration-container {
   text-align: center;
