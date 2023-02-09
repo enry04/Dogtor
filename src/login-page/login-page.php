@@ -30,10 +30,9 @@
                     <input type="email" placeholder="E-mail" class="email-text" required>
                     <input type="text" placeholder="Username" class="username-text" required>
                     <input type="password" placeholder="Password" class="password-text" required>
-                    <input type="submit" class="submit-btn">
+                    <input type="submit" class="submit-btn" value="Conferma">
                 </form>
             </div>
-            <div class="separate-line"></div>
             <div class="registration-container">
                 <h5>
                     <a href="../register-page/register-page.php">Non hai un account?<br>Clicca qui</a>
