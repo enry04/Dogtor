@@ -55,7 +55,7 @@
                     </div>
                     <div class="row">
                         <div class="input-container">
-                            <input type="number" required class="postal-code">
+                            <input type="number" required class="postal-code" onkeydown="javascript: return ['Backspace','Delete','ArrowLeft','ArrowRight'].includes(event.code) ? true : !isNaN(Number(event.key)) && event.code!=='Space'">
                             <span>CAP</span>
                         </div>
                         <div class="input-container">
@@ -63,15 +63,16 @@
                             <span>Via</span>
                         </div>
                         <div class="input-container">
-                            <input type="number" required class="house-number">
+                            <input type="number" required class="house-number" onkeydown="javascript: return ['Backspace','Delete','ArrowLeft','ArrowRight'].includes(event.code) ? true : !isNaN(Number(event.key)) && event.code!=='Space'">
                             <span>N. civico</span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-container">
-                            <input type="number" required class="telephone-number">
+                            <input type="number" required class="telephone-number" onkeydown="javascript: return ['Backspace','Delete','ArrowLeft','ArrowRight'].includes(event.code) ? true : !isNaN(Number(event.key)) && event.code!=='Space'">
                             <span>N. di telefono (principale)</span>
                         </div>
+                        <div class="plus-container"></div>
                     </div>
                     <div class="row">
                         <input type="submit" class="submit-btn" value="Conferma">
@@ -80,6 +81,7 @@
             </div>
         </section>
     </main>
+    <script src="./js/register-view.js" type="module"></script>
 </body>
 
 </html>

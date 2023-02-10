@@ -5,3 +5,29 @@
   align-items: center;
   gap: 45px;
 }
+
+.row:nth-child(4){
+  width: 100%;
+  justify-content: flex-start;
+  position: relative;
+}
+
+.plus-container{
+  background: url("../../common/images/plus-logo.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  position: absolute;
+  left: 370px;
+}
+
+.row:last-child{
+    margin-top: 20px;
+}
+
+.submit-btn{
+    width: 500px;
+}
