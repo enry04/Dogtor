@@ -26,22 +26,52 @@
             <div class="form-container">
                 <form method="post">
                     <div class="row">
-                        <input type="text" placeholder="Nome" required class="name-text" onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))'>
-                        <input type="text" placeholder="Cognome" required class="surname-text" onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))'>
-                        <input type="text" placeholder="Codice fiscale" required class="tax-code">
+                        <div class="input-container">
+                            <input type="text" required class="name-text" onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))'>
+                            <span>Nome</span>
+                        </div>
+                        <div class="input-container">
+                            <input type="text" required class="surname-text" onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))'>
+                            <span>Cognome</span>
+                        </div>
+                        <div class="input-container">
+                            <input type="text" required class="tax-code">
+                            <span>Codice fiscale</span>
+                        </div>
                     </div>
                     <div class="row">
-                        <input type="text" placeholder="Nome utente" required class="username-text">
-                        <input type="password" placeholder="password" required class="password-text">
-                        <input type="email" placeholder="Email" required class="email-text">
+                        <div class="input-container">
+                            <input type="text" required class="username-text">
+                            <span>Nome utente</span>
+                        </div>
+                        <div class="input-container">
+                            <input type="password" required class="password-text">
+                            <span>Password</span>
+                        </div>
+                        <div class="input-container">
+                            <input type="email" required class="email-text">
+                            <span>Email</span>
+                        </div>
                     </div>
                     <div class="row">
-                        <input type="number" placeholder="CAP" required class="postal-code">
-                        <input type="text" placeholder="Via" required class="street-text">
-                        <input type="number" placeholder="N. civico" required class="house-number">
+                        <div class="input-container">
+                            <input type="number" required class="postal-code">
+                            <span>CAP</span>
+                        </div>
+                        <div class="input-container">
+                            <input type="text" required class="street-text">
+                            <span>Via</span>
+                        </div>
+                        <div class="input-container">
+                            <input type="number" required class="house-number">
+                            <span>N. civico</span>
+                        </div>
                     </div>
                     <div class="row">
-                        <input type="number" placeholder="N. di telefono (principale)" required class="telephone-number">
+                        <div class="input-container">
+                            <input type="number" required class="telephone-number">
+                            <span>N. di telefono (principale)</span>
+                        </div>
                     </div>
                     <div class="row">
                         <input type="submit" class="submit-btn" value="Conferma">

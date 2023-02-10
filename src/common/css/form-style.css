@@ -18,7 +18,31 @@ form {
   margin-top: 50px;
 }
 
+.input-container {
+  position: relative;
+  transition: 0.5s;
+}
+
+.input-container span {
+  font-size: 1.2em;
+  font-weight: 600;
+  color: #8f8f8f;
+  position: absolute;
+  left: 6px;
+  bottom: 23%;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+input:valid ~ span,
+input:focus ~ span {
+  color: #272343;
+  transform: translateY(-44px);
+  font-size: 0.90em;
+}
+
 input {
+  background: transparent;
   width: 400px;
   height: 45px;
   border: solid #272343 2px;
@@ -36,13 +60,15 @@ input[type="submit"] {
   cursor: pointer;
 }
 
-input:hover::placeholder,
-input:focus::placeholder {
-  color: #272343;
-}
-
 input:hover,
 input:not(input[type="submit"]):focus,
 input:not(input[type="submit"]):valid {
   box-shadow: 0 5px 15px -10px rgba(31, 18, 53, 0.6);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
 }
