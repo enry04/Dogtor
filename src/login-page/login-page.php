@@ -28,15 +28,15 @@
             <div class="form-container">
                 <form method="post">
                     <div class="input-container">
-                        <input type="email" placeholder="E-mail" class="email-text" required>
+                        <input type="email" class="email-text" required>
                         <span>Email</span>
                     </div>
                     <div class="input-container">
-                        <input type="text" placeholder="Username" class="username-text" required>
+                        <input type="text" class="username-text" required>
                         <span>Nome utente</span>
                     </div>
                     <div class="input-container">
-                        <input type="password" placeholder="Password" class="password-text" required>
+                    <input type="password"  class="password-text" required>
                         <span>Password</span>
                     </div>
 

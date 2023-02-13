@@ -71,8 +71,8 @@
                         <div class="input-container">
                             <input type="number" required class="telephone-number" onkeydown="javascript: return ['Backspace','Delete','ArrowLeft','ArrowRight'].includes(event.code) ? true : !isNaN(Number(event.key)) && event.code!=='Space'">
                             <span>N. di telefono (principale)</span>
+                            <div class="plus-container"></div>
                         </div>
-                        <div class="plus-container"></div>
                     </div>
                     <div class="row">
                         <input type="submit" class="submit-btn" value="Conferma">
