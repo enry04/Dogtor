@@ -24,7 +24,7 @@ class FormManager {
       postalCode: this.rootElement.querySelector(".postal-code"),
       street: this.rootElement.querySelector(".street-text"),
       houseNumber: this.rootElement.querySelector(".house-number"),
-      telephoneNumber: this.rootElement.querySelectorAll(".telephone-number"),
+      telephoneNumber: this.rootElement.querySelector(".telephone-number"),
       telephoneRow: this.rootElement.querySelector(".row:nth-child(4)"),
       plusBtn: this.rootElement.querySelector(".plus-container"),
       minusBtn: null,
@@ -105,8 +105,11 @@ class FormManager {
     this.elements.street.value = "";
     this.elements.houseNumber.value = "";
     this.elements.telephoneNumber.value = "";
-    this.rootElement.querySelector(`[id="0"]`).remove();
-    this.rootElement.querySelector(`[id="1"]`).remove();
+    for(let i = 0; i < this.elements.secondaryTelephoneNumbers.length; i++) {
+        this.elements.secondaryTelephoneNumbers[i].value = "";
+        this.rootElement.querySelector(`[id="${i}"]`).remove();
+    }
+
     this.elements.secondaryTelephoneNumbers = [];
     this.currentNumbers = 0;
   }
