@@ -74,7 +74,6 @@ class FormManager {
 
     this.elements.form.addEventListener("submit", (event) => {
       event.preventDefault();
-      this.resetElements();
       const formData = {
         name: this.elements.name.value,
         surname: this.elements.surname.value,
@@ -87,6 +86,7 @@ class FormManager {
         houseNumber: this.elements.houseNumber.value,
         telephoneNumber: this.elements.telephoneNumber.value,
       };
+      this.resetElements();
       FetchUtil.postData("", formData).then((response) => {
         console.log(response);
       });
@@ -105,8 +105,8 @@ class FormManager {
     this.elements.street.value = "";
     this.elements.houseNumber.value = "";
     this.elements.telephoneNumber.value = "";
-    this.rootElement.querySelector("#0").remove();
-    this.rootElement.querySelector("#1").remove();
+    this.rootElement.querySelector(`[id="0"]`).remove();
+    this.rootElement.querySelector(`[id="1"]`).remove();
     this.elements.secondaryTelephoneNumbers = [];
     this.currentNumbers = 0;
   }
