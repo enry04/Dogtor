@@ -87,7 +87,7 @@ class FormManager {
         telephoneNumber: this.elements.telephoneNumber.value,
       };
       this.resetElements();
-      FetchUtil.postData("", formData).then((response) => {
+      FetchUtil.postData("./php/insert-user.php", formData).then((response) => {
         console.log(response);
       });
     });
@@ -109,7 +109,6 @@ class FormManager {
         this.elements.secondaryTelephoneNumbers[i].value = "";
         this.rootElement.querySelector(`[id="${i}"]`).remove();
     }
-
     this.elements.secondaryTelephoneNumbers = [];
     this.currentNumbers = 0;
   }
