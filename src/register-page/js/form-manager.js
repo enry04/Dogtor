@@ -37,16 +37,23 @@ class FormManager {
     this.elements.plusBtn.addEventListener("click", (event) => {
       if (this.currentNumbers < this.maxNumbers) {
         if (this.currentNumbers == 1) {
-            let divToRemove = this.elements.telephoneRow.querySelector(".minus-container");
-            divToRemove.remove();
-          }
+          let divToRemove =
+            this.elements.telephoneRow.querySelector(".minus-container");
+          divToRemove.remove();
+        }
         let div = document.createElement("div");
         div.classList.toggle("input-container", true);
         div.setAttribute("id", this.currentNumbers);
         let input = document.createElement("input");
         input.type = "number";
         input.required = "true";
-        input.onkeydown = (event) => {return ['Backspace','Delete','ArrowLeft','ArrowRight'].includes(event.code) ? true : !isNaN(Number(event.key)) && event.code!=='Space'};
+        input.onkeydown = (event) => {
+          return ["Backspace", "Delete", "ArrowLeft", "ArrowRight"].includes(
+            event.code
+          )
+            ? true
+            : !isNaN(Number(event.key)) && event.code !== "Space";
+        };
         this.elements.secondaryTelephoneNumbers.push(input);
         let span = document.createElement("span");
         span.textContent = "N. di telefono (secondario)";
@@ -58,38 +65,75 @@ class FormManager {
         div.appendChild(minusDiv);
         this.currentNumbers++;
         minusDiv.addEventListener("click", (event) => {
-            this.currentNumbers--;
-            let divToRemove = this.rootElement.querySelector(`[id="${this.currentNumbers}"]`);
-            if(this.currentNumbers == 1){
-                let div = this.rootElement.querySelector(`[id="${this.currentNumbers - 1}"]`);
-                div.appendChild(minusDiv);
-            }
-            this.elements.secondaryTelephoneNumbers.pop();
+          this.currentNumbers--;
+          let divToRemove = this.rootElement.querySelector(
+            `[id="${this.currentNumbers}"]`
+          );
+          if (this.currentNumbers == 1) {
+            let div = this.rootElement.querySelector(
+              `[id="${this.currentNumbers - 1}"]`
+            );
+            div.appendChild(minusDiv);
+          }
+          this.elements.secondaryTelephoneNumbers.pop();
 
-            divToRemove.remove();
+          divToRemove.remove();
         });
         this.elements.minusBtn = minusDiv;
       }
     });
 
-    this.elements.form.addEventListener("submit", (event) => {
+    this.elements.form.addEventListener("submit", async (event) => {
       event.preventDefault();
-      const formData = {
-        name: this.elements.name.value,
-        surname: this.elements.surname.value,
-        taxCode: this.elements.taxCode.value,
-        userName: this.elements.userName.value,
-        password: this.elements.password.value,
-        email: this.elements.email.value,
+      const addressData = {
         postalCode: this.elements.postalCode.value,
         street: this.elements.street.value,
         houseNumber: this.elements.houseNumber.value,
+      };
+      let addressId = null;
+      await FetchUtil.postData("./php/check-address.php", addressData).then(
+        async (response) => {
+          if (response.status == "already present") {
+            let parseData = JSON.parse(response.data);
+            addressId = parseData["id"];
+          } else {
+            await FetchUtil.postData(
+              "./php/insert-address.php",
+              addressData
+            ).then(async (response) => {
+              if (response.status == "success") {
+                let parseData = JSON.parse(response.data);
+                addressId = parseData["LAST_INSERT_ID()"];
+              } else {
+                console.log(response.status);
+              }
+            });
+          }
+        }
+      );
+      const userData = {
+        name: this.elements.name.value,
+        surname: this.elements.surname.value,
+        taxCode: this.elements.taxCode.value,
+        username: this.elements.userName.value,
+        password: this.elements.password.value,
+        email: this.elements.email.value,
+        idAddress: addressId,
         telephoneNumber: this.elements.telephoneNumber.value,
       };
-      this.resetElements();
-      FetchUtil.postData("./php/insert-user.php", formData).then((response) => {
-        console.log(response);
-      });
+      let userId = null;
+      await FetchUtil.postData("./php/insert-user.php", userData).then(
+        (response) => {
+          if (response.status == "error") {
+            console.log(response.data);
+          }
+        }
+      );
+      const telephonesData = {
+        telephoneNumbers: this.getNumbers(),
+      };
+      console.log(telephonesData.telephoneNumbers);
+      //this.resetElements();
     });
   }
 
@@ -105,12 +149,20 @@ class FormManager {
     this.elements.street.value = "";
     this.elements.houseNumber.value = "";
     this.elements.telephoneNumber.value = "";
-    for(let i = 0; i < this.elements.secondaryTelephoneNumbers.length; i++) {
-        this.elements.secondaryTelephoneNumbers[i].value = "";
-        this.rootElement.querySelector(`[id="${i}"]`).remove();
+    for (let i = 0; i < this.elements.secondaryTelephoneNumbers.length; i++) {
+      this.elements.secondaryTelephoneNumbers[i].value = "";
+      this.rootElement.querySelector(`[id="${i}"]`).remove();
     }
     this.elements.secondaryTelephoneNumbers = [];
     this.currentNumbers = 0;
+  }
+
+  getNumbers() {
+    let values = [];
+    for (let i = 0; i < this.elements.secondaryTelephoneNumbers.length; i++) {
+      values.push(this.elements.secondaryTelephoneNumbers[i].value);
+    }
+    return values;
   }
 }
 

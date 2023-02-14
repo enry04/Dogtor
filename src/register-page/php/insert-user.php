@@ -15,15 +15,16 @@ $taxCode = $data->taxCode;
 $username = $data->username;
 $password = $data->password;
 $email = $data->email;
-$adressId = $data->AddressId;
+$addressId = $data->idAddress;
+$type = "utente";
 $telephoneNumber = $data->telephoneNumber;
 
 $result = null;
 
 try {
 
-    $query = $pdo->prepare("INSERT INTO ");
-    $query->execute([]);
+    $query = $pdo->prepare("INSERT INTO tUtente (nome, cognome, codiceFiscale, nomeUtente, password, email, idIndirizzo, tipologia, numeroTelefonoPrincipale) VALUES (:name, :surname, :taxCode, :username, :password, :email, :addressId, :type, :telephoneNumber)");
+    $query->execute(['name' => $name, 'surname' => $surname, 'taxCode' => $taxCode, 'username' => $username, 'password' => $password, 'email' => $email, 'addressId' => $addressId, 'type' => $type, 'telephoneNumber' => $telephoneNumber]);
     $result = array(
         'data' => null,
         'status' => "success",
