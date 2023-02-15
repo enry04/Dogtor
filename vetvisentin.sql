@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Creato il: Feb 09, 2023 alle 13:18
+-- Creato il: Feb 15, 2023 alle 20:32
 -- Versione del server: 10.4.27-MariaDB
 -- Versione PHP: 8.0.25
 
@@ -52,6 +52,25 @@ CREATE TABLE `tIndirizzo` (
   `via` varchar(100) NOT NULL,
   `numeroCivico` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dump dei dati per la tabella `tIndirizzo`
+--
+
+INSERT INTO `tIndirizzo` (`id`, `CAP`, `via`, `numeroCivico`) VALUES
+(1, 34121, 'Via della Cattedrale', 5),
+(2, 34148, 'Via Sinigaglia', 12),
+(3, 34120, 'Via Corsi', 43),
+(4, 34321, 'Via Corsi', 43),
+(5, 33412, 'Via Roma', 12),
+(6, 2435, 'Via Trento', 234),
+(7, 2321, 'Via Giustiniano', 4),
+(8, 243234, 'Via Monte Grappa', 24),
+(9, 2431, 'Via Cologna', 1),
+(10, 2423, 'Via de Borgo', 353),
+(11, 243, 'della ', 2),
+(12, 43, 'cijsic', 43),
+(13, 2435, 'Via dell\'Istria', 32);
 
 -- --------------------------------------------------------
 
@@ -108,12 +127,24 @@ CREATE TABLE `tUtente` (
   `id` int(11) NOT NULL,
   `nome` varchar(100) NOT NULL,
   `cognome` varchar(100) NOT NULL,
-  `username` varchar(100) NOT NULL,
-  `idIndirizzo` int(11) NOT NULL,
   `codiceFiscale` varchar(100) NOT NULL,
+  `nomeUtente` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `idIndirizzo` int(11) NOT NULL,
   `tipologia` varchar(100) NOT NULL,
-  `numeroTelefonoPrincipale` int(11) NOT NULL
+  `numeroTelefonoPrincipale` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dump dei dati per la tabella `tUtente`
+--
+
+INSERT INTO `tUtente` (`id`, `nome`, `cognome`, `codiceFiscale`, `nomeUtente`, `email`, `password`, `idIndirizzo`, `tipologia`, `numeroTelefonoPrincipale`) VALUES
+(1, 'Enrico', 'Visentin', '9400Vsncooo', 'enrico', 'enrico04v@gmail.com', 'ciao123', 9, 'utente', '2456454534346'),
+(2, 'Manuel', 'Scialino', 'SCNA0OEUJNVI', 'manuel', 'scialino@ei.godo', 'godo123', 10, 'utente', '5425342535'),
+(3, 'Manuel', 'Scialino', 'VSNCOFJOSKC', 'manuel', 'mcsk@goo.com', 'cioao', 11, 'utente', '43535'),
+(4, 'gflvgkim', 'jnvjdnvjn', 'qjnvjndvjn', 'jnvjnedvjnj', 'jnvjdnvn@mgkf.com', 'njvndjnv', 12, 'utente', '4343434343434343');
 
 --
 -- Indici per le tabelle scaricate
@@ -168,10 +199,16 @@ ALTER TABLE `tAnimale`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT per la tabella `tIndirizzo`
+--
+ALTER TABLE `tIndirizzo`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
 -- AUTO_INCREMENT per la tabella `tUtente`
 --
 ALTER TABLE `tUtente`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
