@@ -12,8 +12,9 @@ $username = $data->username;
 $email = $data->email;
 $taxCode = $data->taxCode;
 $telephoneNumber = $data->telephoneNumber;
-$query = $pdo->prepare("SELECT * FROM tUtente WHERE username=:username OR email=:email OR codiceFiscale=:taxCode OR numeroTelefonoPrincipale=:telephoneNumber");
-$query->execute(['username' => $username, 'email' => $email, 'taxCode' => $taxCode, 'telephoneNumber' => $telephoneNumber]);
+
+$query = $pdo->prepare("SELECT * FROM tUtente WHERE nomeUtente=:user OR email=:mail OR codiceFiscale=:taxCode OR numeroTelefonoPrincipale=:telephoneNumber");
+$query->execute(['user' => $username, 'mail' => $email, 'taxCode' => $taxCode, 'telephoneNumber' => $telephoneNumber]);
 $userData = $query->fetch();
 $result = null;
 
