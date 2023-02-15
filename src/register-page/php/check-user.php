@@ -29,3 +29,5 @@ if ($userData != null) {
         "status" => "not present",
     );
 }
+
+echo json_encode($result);
