@@ -124,12 +124,16 @@ class FormManager {
       let userId = null;
       await FetchUtil.postData("./php/insert-user.php", userData).then(
         (response) => {
-          if (response.status == "error") {
+          if (response.status == "success") {
+            let parseData = JSON.parse(response.data);
+            userId = parseData["LAST_INSERT_ID()"]
+          }else{
             console.log(response.data);
           }
         }
       );
       const telephonesData = {
+        userId: userId,
         telephoneNumbers: this.getNumbers(),
       };
       console.log(telephonesData.telephoneNumbers);
