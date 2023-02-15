@@ -25,8 +25,10 @@ try {
 
     $query = $pdo->prepare("INSERT INTO tUtente (nome, cognome, codiceFiscale, nomeUtente, password, email, idIndirizzo, tipologia, numeroTelefonoPrincipale) VALUES (:name, :surname, :taxCode, :username, :password, :email, :addressId, :type, :telephoneNumber)");
     $query->execute(['name' => $name, 'surname' => $surname, 'taxCode' => $taxCode, 'username' => $username, 'password' => $password, 'email' => $email, 'addressId' => $addressId, 'type' => $type, 'telephoneNumber' => $telephoneNumber]);
+    $getIdQuery = $pdo->query("SELECT LAST_INSERT_ID() FROM tUtente");
+    $userData = $getIdQuery->fetch();
     $result = array(
-        'data' => null,
+        'data' => json_encode($userData),
         'status' => "success",
     );
 } catch (PDOException $e) {

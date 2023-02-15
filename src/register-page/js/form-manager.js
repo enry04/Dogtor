@@ -124,29 +124,33 @@ class FormManager {
       let userId = null;
       await FetchUtil.postData("./php/check-user.php", userData).then(
         async (response) => {
-          console.log(response);
-        //   console.log(response.data);
-        //   if (response.status == "already present") {
-        //     console.log("error");
-        //   } else {
-        //     await FetchUtil.postData("./php/insert-user.php", userData).then(
-        //       (response) => {
-        //         if (response.status == "success") {
-        //           let parseData = JSON.parse(response.data);
-        //           userId = parseData["LAST_INSERT_ID()"];
-        //         } else {
-        //           console.log(response.data);
-        //         }
-        //       }
-        //     );
-        //   }
+          if (response.status == "already present") {
+            console.log("error");
+          } else {
+            await FetchUtil.postData("./php/insert-user.php", userData).then(
+              (response) => {
+                if (response.status == "success") {
+                  let parseData = JSON.parse(response.data);
+                  userId = parseData["LAST_INSERT_ID()"];
+                } else {
+                  console.log(response.data);
+                }
+              }
+            );
+          }
         }
       );
       const telephonesData = {
         userId: userId,
         telephoneNumbers: this.getNumbers(),
       };
-      console.log(telephonesData.telephoneNumbers);
+      await FetchUtil.postData("./php/check-telephone-number  .php", telephonesData).then(async (response) => {
+          if(response.status == "already present"){
+            console.log("error");
+          }else {
+
+          }
+      });
       //this.resetElements();
     });
   }
