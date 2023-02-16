@@ -39,8 +39,6 @@
                     <input type="password"  class="password-text" required>
                         <span>Password</span>
                     </div>
-
-
                     <input type="submit" class="submit-btn" value="Conferma">
                 </form>
             </div>

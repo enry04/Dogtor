@@ -126,6 +126,7 @@ class FormManager {
         async (response) => {
           if (response.status == "already present") {
             console.log("error");
+            //TODO
           } else {
             await FetchUtil.postData("./php/insert-user.php", userData).then(
               (response) => {
@@ -144,11 +145,11 @@ class FormManager {
         userId: userId,
         telephoneNumbers: this.getNumbers(),
       };
-      await FetchUtil.postData("./php/check-telephone-number  .php", telephonesData).then(async (response) => {
+      await FetchUtil.postData("./php/check-telephone-number.php", telephonesData).then(async (response) => {
           if(response.status == "already present"){
             console.log("error");
           }else {
-
+            
           }
       });
       //this.resetElements();
