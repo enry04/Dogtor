@@ -149,7 +149,9 @@ class FormManager {
           if(response.status == "already present"){
             console.log("error");
           }else {
-            
+            await FetchUtil.postData("./php/add-telephone-number.php", telephonesData).then((response)=>{
+              
+            });
           }
       });
       //this.resetElements();
