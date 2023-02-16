@@ -29,6 +29,7 @@ class FormManager {
       plusBtn: this.rootElement.querySelector(".plus-container"),
       minusBtn: null,
       secondaryTelephoneNumbers: [],
+      errorInfo: document.querySelector(".error-info"),
       form: this.rootElement.querySelector("form"),
     };
   }
@@ -122,11 +123,13 @@ class FormManager {
         telephoneNumber: this.elements.telephoneNumber.value,
       };
       let userId = null;
+      let isToContinue = true;
       await FetchUtil.postData("./php/check-user.php", userData).then(
         async (response) => {
           if (response.status == "already present") {
             console.log("error");
-            //TODO
+            isToContinue = false;
+            this.elements.errorInfo.textContent = "Utente già esistente!";
           } else {
             await FetchUtil.postData("./php/insert-user.php", userData).then(
               (response) => {
@@ -145,16 +148,22 @@ class FormManager {
         userId: userId,
         telephoneNumbers: this.getNumbers(),
       };
-      await FetchUtil.postData("./php/check-telephone-number.php", telephonesData).then(async (response) => {
+      if(telephonesData.telephoneNumbers != [] && isToContinue){
+        await FetchUtil.postData("./php/check-telephone-number.php", telephonesData).then(async (response) => {
           if(response.status == "already present"){
             console.log("error");
           }else {
-            await FetchUtil.postData("./php/add-telephone-number.php", telephonesData).then((response)=>{
-              
-            });
-          }
-      });
-      //this.resetElements();
+                await FetchUtil.postData("./php/insert-telephone-number.php", telephonesData).then( (response) => {
+                  if(response.status == "error"){
+                    console.log(response.data);
+                  }
+                });
+              }
+          });
+      }
+      if(isToContinue){
+        this.resetElements();
+      }
     });
   }
 
@@ -176,6 +185,7 @@ class FormManager {
     }
     this.elements.secondaryTelephoneNumbers = [];
     this.currentNumbers = 0;
+    this.elements.errorInfo.textContent = "";
   }
 
   getNumbers() {

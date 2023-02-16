@@ -8,14 +8,22 @@ $pdo = $mySql->getConnection();
 $json = file_get_contents("php://input");
 $data = json_decode($json);
 
-$userId = $data->userId;
-$
+$telephoneNumbers = $data->telephoneNumbers;
 
-$query = $pdo->prepare("");
-$query->execute([]);
+if (count($telephoneNumbers) == 1) {
+    $number = $telephoneNumbers[0];
+    $query = $pdo->prepare("SELECT * FROM tTelefono WHERE numero=:number ");
+    $query->execute(["number" => $number]);
+} else {
+    $numberOne = $telephoneNumbers[0];
+    $numberTwo = $telephoneNumbers[1];
+    $query = $pdo->prepare("SELECT * FROM tTelefono WHERE numero=:numberOne OR numero=:numberTwo");
+    $query->execute(["numberOne" => $numberOne, "numberTwo" => $numberTwo]);
+}
+$telephoneData = $query->fetch();
 $result = null;
 
-if ($userData != null) {
+if ($telephoneData != null) {
     $result = array(
         "data" => null,
         "status" => "already present",
