@@ -1,0 +1,76 @@
+.popUp-block {
+    position: relative;
+  }
+  
+  .popUp-menu-container {
+    position: absolute;
+    right: -62%;
+    border-top: 14px solid transparent;
+  }
+  
+  .popUp-arrow {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: -7px;
+    left: 45%;
+    background: #e3f6f5;
+    border-radius: 5px;
+    z-index: -1;
+    transform: rotate(-45deg);
+  }
+  
+  .popUp-inner {
+    padding: 10px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #e3f6f5;
+    border-radius: 5px;
+  }
+  
+  .popUp-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 188px;
+    padding: 3px 0 3px 0;
+  }
+  
+  .popUp-line a {
+    color: #001e1d !important;
+    font-size: 17px;
+    text-decoration: none;
+  }
+  
+  .popUp-line a:hover {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .option-btn {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    display: block;
+    height: 32px;
+    width: 100%;
+    z-index: 2;
+    top: 0;
+    left: 0;
+  }
+  
+
+  .hide{
+    display: none;
+  }
+
+  .logout-btn {
+    cursor: pointer;
+  }
+
+  .logout-btn:hover{
+    text-decoration: underline #272343;
+    color: #272343;
+    text-underline-offset: 5px;
+  }

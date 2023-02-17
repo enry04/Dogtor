@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../common/css/header-style.css">
     <link rel="stylesheet" href="./css/login-page-style.css">
     <link rel="stylesheet" href="../common/css/form-style.css">
+    <link rel="stylesheet" href="../common/css/pop-up-style.css">
     <link rel="icon" href="../common/images/page-logo.png">
     <title>Dogtor</title>
 </head>
@@ -16,6 +17,7 @@
 <body>
 
     <?php
+    require_once("../common/php/token-manager.php");
     $page = "login";
     $active = 'class="active-page"';
     require('../common/php/header.php');
