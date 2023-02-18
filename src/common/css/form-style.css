@@ -18,6 +18,14 @@ form {
   margin-top: 50px;
 }
 
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 45px;
+}
+
 .input-container {
   position: relative;
   transition: 0.5s;
@@ -38,7 +46,7 @@ input:valid ~ span,
 input:focus ~ span {
   color: #272343;
   transform: translateY(-44px);
-  font-size: 0.90em;
+  font-size: 0.9em;
 }
 
 input {
@@ -60,6 +68,23 @@ input[type="submit"] {
   cursor: pointer;
 }
 
+input[type="date"] {
+  color: transparent;
+  text-align: center;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.input-container input[type="date"]:focus,
+.input-container input[type="date"]:valid {
+  color: #272343;
+}
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+}
+
 input:hover,
 input:not(input[type="submit"]):focus,
 input:not(input[type="submit"]):valid {
@@ -73,6 +98,6 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-.error-info{
+.error-info {
   color: red;
 }
