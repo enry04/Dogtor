@@ -11,7 +11,12 @@
                 <a <?= ($page == "prenote") ? $active : '' ?> class="header-option" href="../prenote-visit/prenote-page.php"> Prenota visita </a>
             </h4>
             <h4 class="popUp-block">
-                Account
+                <div class="hamburger-container">
+                    <input type="checkbox" class="option-btn">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
                 <input type="checkbox" class="option-btn">
                 <div class="popUp-menu-container hide">
                     <div class="popUp-arrow">
@@ -19,7 +24,7 @@
                     <div class="popUp-inner">
                         <div class="popUp-line">
                             <h5 class="logout-btn">
-                                Logout
+                                <a href="../common/php/logout.php">Logout</a>
                             </h5>
                         </div>
                     </div>
@@ -27,7 +32,7 @@
             </h4>
             </input>
         </div>
-
+        <script src="../common/js/pop-up-manager.js" type="module"></script>
     <?php
     } else {
     ?>
@@ -44,4 +49,3 @@
 
         </div>
 </header>
-<script src="../common/js/pop-up-manager.js" type="module"></script>
