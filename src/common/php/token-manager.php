@@ -22,19 +22,19 @@ class TokenManager
 
     static function authenticate($userId, $userType)
     {
-        setcookie('user_auth', $userId, time() + (60*10), '/');
+        setcookie('user_id', $userId, time() + (60*10), '/');
         setcookie('user_type', $userType, time() + (60*10), '/');
     }
 
     static function unauthenticate()
     {
-        setcookie("user_auth", "", time() - (60*10), '/');
+        setcookie("user_id", "", time() - (60*10), '/');
         setcookie('user_type', "", time() - (60*10), '/');
     }
 
     static function isAuthenticated()
     {
-        return isset($_COOKIE['user_auth']);
+        return isset($_COOKIE['user_id']);
     }
     static function isLogged()
     {
