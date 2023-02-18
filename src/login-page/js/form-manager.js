@@ -1,4 +1,4 @@
-import FetchUtil from "../../common/js/fetch-util,js";
+import FetchUtil from "../../common/js/fetch-util.js";
 
 class FormManager {
   constructor(parentElement) {
@@ -16,25 +16,30 @@ class FormManager {
       email: this.rootElement.querySelector(".email-text"),
       username: this.rootElement.querySelector(".username-text"),
       password: this.rootElement.querySelector(".password-text"),
-      form: this.rootElement.querySelector("submit-btn"),
+      form: this.rootElement.querySelector("form"),
     };
   }
 
   initEventListeners() {
     this.elements.form.addEventListener("submit", (event) => {
       event.preventDefault();
-      const formData = {
+      const userData = {
         email: this.elements.email.value,
         username: this.elements.username.value,
         password: this.elements.password.value,
       };
-      this.elements.email.value = "";
-      this.elements.username.value = "";
-      this.elements.password.value = "";
-      FetchUtil.postData("", formData).then((response) => {
-        console.log(response);
+      FetchUtil.postData("./php/login-validation.php", userData).then((response) => {
+        if(response.status == "success"){
+          location.href = "../main-page/main-page.php";
+        }
       });
+      this.resetElements();
     });
+  }
+  resetElements() {
+    this.elements.email.value = "";
+    this.elements.username.value = "";
+    this.elements.password.value = "";
   }
 }
 

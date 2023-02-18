@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../common/css/page-style.css">
     <link rel="stylesheet" href="../common/css/header-style.css">
     <link rel="stylesheet" href="./css/main-page-style.css">
+    <link rel="stylesheet" href="../common/css/pop-up-style.css">
     <link rel="icon" href="../common/images/page-logo.png">
 
     <title>dogtor</title>
@@ -15,9 +16,10 @@
 
 <body>
     <?php
+    require_once("../common/php/token-manager.php");
     $page = "main";
     $active = 'class="active-page"';
-    require('../common/php/header.php');
+    require_once('../common/php/header.php');
     ?>
 
     <main>
