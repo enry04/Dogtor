@@ -27,6 +27,9 @@
             <h4>
                 Effettua il login
             </h4>
+            <h5 class="error-info">
+
+            </h5>
             <div class="form-container">
                 <form method="post">
                     <div class="input-container">

@@ -17,6 +17,7 @@ class FormManager {
       username: this.rootElement.querySelector(".username-text"),
       password: this.rootElement.querySelector(".password-text"),
       form: this.rootElement.querySelector("form"),
+      errorInfo: document.querySelector(".error-info"),
     };
   }
 
@@ -30,16 +31,19 @@ class FormManager {
       };
       FetchUtil.postData("./php/login-validation.php", userData).then((response) => {
         if(response.status == "success"){
+          this.resetElements();
           location.href = "../main-page/main-page.php";
+        }else{
+          this.elements.errorInfo.textContent = "Credenziali errate";
         }
       });
-      this.resetElements();
     });
   }
   resetElements() {
     this.elements.email.value = "";
     this.elements.username.value = "";
     this.elements.password.value = "";
+    this.elements.errorInfo.textContent = "";
   }
 }
 
