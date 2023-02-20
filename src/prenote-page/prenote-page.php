@@ -31,7 +31,7 @@
             </h5>
             <div class="form-container">
                 <form method="post">
-                    <section class="step">
+                    <section class="step" id="0">
                         <div class="row">
                             <div class="input-container">
                                 <input type="text" required class="patient-text" onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))'>
@@ -76,7 +76,7 @@
                             <input type="button" class="submit-btn next-btn" value="Prosegui">
                         </div>
                     </section>
-                    <section class="step">
+                    <section class="step hide" id="1">
                         <div class="row">
                             <div class="input-container">
                                 <input type="text" required class="motivation-text">
@@ -104,18 +104,18 @@
                                     <option value="urgente">Urgente</option>
                                     <option value="non urgente">Non urgente</option>
                                 </select>
-                            </div>
+                           </div>
                         </div>
                         <div class="row">
-                            <input type="button" value="Indietro" class="submit-btn">
-                            <input type="button" value="Conferma" class="submit-btn">
+                            <input type="button" value="Indietro" class="submit-btn previous-btn">
+                            <input type="button" value="Conferma" class="submit-btn confirm-btn" >
                         </div>
                     </section>
                 </form>
             </div>
         </section>
-
     </main>
+    <script src="./js/prenote-view.js" type="module"></script>
 </body>
 
 </html>

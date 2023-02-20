@@ -63,35 +63,40 @@ input {
 }
 
 input[type="submit"],
-input[type = "button"] {
+input[type="button"] {
   background-color: #ffd803;
   color: #272343;
   cursor: pointer;
 }
 
-input[type="date"] {
+input[type="date"],
+input[type="time"] {
   color: transparent;
   text-align: center;
   font-size: 17px;
   cursor: pointer;
 }
 
-.input-container input[type="date"]:focus,
-.input-container input[type="date"]:valid {
+input[type="date"]:focus,
+input[type="date"]:valid,
+input[type="time"]:focus,
+input[type="time"]:valid {
   color: #272343;
 }
 
 input[type="date"]::-webkit-inner-spin-button,
 input[type="date"]::-webkit-calendar-picker-indicator,
 input[type="time"]::-webkit-outer-spin-button,
-input[type="time"]::-webkit-calendar-picker-indicator
- {
+input[type="time"]::-webkit-calendar-picker-indicator {
   cursor: pointer;
 }
 
 input:hover,
 input:not(input[type="submit"]):focus,
-input:not(input[type="submit"]):valid {
+input:not(input[type="submit"]):valid,
+select:hover,
+select:focus,
+select:valid {
   box-shadow: 0 5px 15px -10px rgba(31, 18, 53, 0.6);
 }
 
@@ -102,7 +107,7 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-select{
+select {
   border: #272343 solid 1px;
   width: 400px;
   color: #272343;
@@ -112,10 +117,9 @@ select{
   padding: 0 10px 0 10px;
   background-color: #e3f6f5;
   border-radius: 5px;
-}
-
-select{
   margin-bottom: 15px;
+  cursor: pointer;
+  outline: 0;
 }
 
 .error-info {
