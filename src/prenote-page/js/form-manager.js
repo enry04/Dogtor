@@ -38,14 +38,30 @@ class FormManager {
   }
 
   initEventListeners(){
-    
+    this.elements.firstStep.nextBtn.addEventListener("click", (event) => {
+        this.currentTab++;
+        this.showStep();
+    });
+
+    this.elements.secondStep.previousBtn.addEventListener("click", (event) => {
+        this.currentTab--;
+        this.showStep();
+    });
+
+    // this.elements.secondStep.confirmBtn.addEventListener("click", (event) => {
+        
+    // });
   }
 
   showStep(){
-
+    if(this.currentTab == 0){
+        this.elements.steps[0].classList.toggle("hide" , false);
+        this.elements.steps[1].classList.toggle("hide" , true);
+    }else {
+        this.elements.steps[0].classList.toggle("hide" , true);
+        this.elements.steps[1].classList.toggle("hide" , false);
+    }
   }
-
-
 }
 
 export default FormManager;
