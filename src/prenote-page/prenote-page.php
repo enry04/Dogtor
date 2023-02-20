@@ -23,7 +23,7 @@
     ?>
     <main>
         <section>
-            <h4>
+            <h4 class="title-text">
                 Inserisci paziente
             </h4>
             <h5 class="error-info">
@@ -31,52 +31,80 @@
             </h5>
             <div class="form-container">
                 <form method="post">
-                    <div class="row">
-                        <div class="input-container">
-                            <input type="text" required class="patient-text" onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))'>
-                            <span>Nome paziente</span>
+                    <section class="step">
+                        <div class="row">
+                            <div class="input-container">
+                                <input type="text" required class="patient-text" onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))'>
+                                <span>Nome paziente</span>
+                            </div>
+                            <div class="input-container">
+                                <input type="date" class="birth-date" required>
+                                <span>Data di nascita</span>
+                            </div>
                         </div>
-                        <div class="input-container">
-                            <input type="date" class="birth-date" required>
-                            <span>Data di nascita</span>
+                        <div class="row">
+                            <div class="input-container">
+                                <input type="text" required class="born-text" onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))'>
+                                <span>Città natale</span>
+                            </div>
+                            <div class="input-container">
+                                <input type="text" required class="residence-text" onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))'>
+                                <span>Residenza</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-container">
-                            <input type="text" required class="born-text" onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))'>
-                            <span>Città natale</span>
+                        <div class="row">
+                            <div class="input-container">
+                                <input type="text" required class="species-text" onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))'>
+                                <span>Specie</span>
+                            </div>
+                            <div class="input-container">
+                                <input type="text" required class="breed-text" onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))'>
+                                <span>Razza</span>
+                            </div>
                         </div>
-                        <div class="input-container">
-                            <input type="text" required class="residence-text" onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))'>
-                            <span>Residenza</span>
+                        <div class="row">
+                            <div class="input-container">
+                                <input type="text" required class="name-text" onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))'>
+                                <span>Nome accompagnatore</span>
+                            </div>
+                            <div class="input-container">
+                                <input type="text" required class="surname-text" onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))'>
+                                <span>Cognome accompagnatore</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-container">
-                            <input type="text" required class="species-text" onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))'>
-                            <span>Specie</span>
+                        <div class="row">
+                            <input type="submit" class="submit-btn next-btn" value="Prosegui">
                         </div>
-                        <div class="input-container">
-                            <input type="text" required class="breed-text" onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))'>
-                            <span>Razza</span>
+                    </section>
+                    <section class="step">
+                        <div class="row">
+                            <div class="input-container">
+                                <span>Motivazione</span>
+                            </div>
+                            <div class="input-container">
+                                <span>Descrizione</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-container">
-                            <input type="text" required class="name-text" onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))'>
-                            <span>Nome accompagnatore</span>
+                        <div class="row">
+                            <div class="input-container">
+                                <span>Data visita</span>
+                            </div>
+                            <div class="input-container">
+                                <span>Ora visita</span>
+                            </div>
                         </div>
-                        <div class="input-container">
-                            <input type="text" required class="surname-text" onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))'>
-                            <span>Cognome accompagnatore</span>
+                        <div class="row">
+                            <div class="input-container">
+                                <select>
+                                    <option value=""></option>
+                                </select>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <input type="submit" class="submit-btn" value="Prosegui">
-                    </div>
+                    </section>
                 </form>
             </div>
         </section>
+
     </main>
 </body>
 
