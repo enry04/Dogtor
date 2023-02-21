@@ -38,7 +38,7 @@
                                 <span>Nome paziente</span>
                             </div>
                             <div class="input-container">
-                                <input type="date" class="birth-date" required>
+                                <input type="date" class="birth-date" required max=`time()`>
                                 <span>Data di nascita</span>
                             </div>
                         </div>
@@ -89,7 +89,7 @@
                         </div>
                         <div class="row">
                             <div class="input-container">
-                                <input type="date" required class="visit-date">
+                                <input type="date" required class="visit-date" min=`time()`>
                                 <span>Data visita</span>
                             </div>
                             <div class="input-container">
@@ -108,7 +108,7 @@
                         </div>
                         <div class="row">
                             <input type="button" value="Indietro" class="submit-btn previous-btn">
-                            <input type="button" value="Conferma" class="submit-btn confirm-btn" >
+                            <input type="submit" value="Conferma" class="submit-btn confirm-btn" >
                         </div>
                     </section>
                 </form>
