@@ -1,3 +1,6 @@
+import CookieManager from "../../common/js/cookie-manager.js";
+import FetchUtil from "../../common/js/fetch-util.js";
+
 class FormManager {
   constructor(parentElement) {
     this.rootElement = parentElement;
@@ -40,7 +43,7 @@ class FormManager {
   }
 
   initEventListeners() {
-    this.elements.firstStep.nextBtn.addEventListener("click", (event) => {
+    this.elements.firstStep.nextBtn.addEventListener("click", () => {
       if (this.isStepValid()) {
         this.firstStepData = {
           patient: this.elements.firstStep.patientText.value,
@@ -56,11 +59,11 @@ class FormManager {
         this.showStep();
       }
     });
-    this.elements.secondStep.previousBtn.addEventListener("click", (event) => {
+    this.elements.secondStep.previousBtn.addEventListener("click", () => {
       this.currentTab--;
       this.showStep();
     });
-    this.elements.form.addEventListener("submit", (event) => {
+    this.elements.form.addEventListener("submit", async (event) => {
       event.preventDefault();
       this.secondStepData = {
         motivation: this.elements.secondStep.motivationText.value,
@@ -68,8 +71,33 @@ class FormManager {
         visitDate: this.elements.secondStep.visitDate.value,
         visitTime: this.elements.secondStep.visitTime.value,
       };
-      console.log(this.firstStepData);
-      console.log(this.secondStepData);
+      let patientData = {
+        name: this.firstStepData.patient,
+        birth: this.firstStepData.birth,
+        bornPlace: this.firstStepData.born,
+        residence: this.firstStepData.residence,
+        species: this.firstStepData.species,
+        breed: this.firstStepData.breed,
+        ownerId: CookieManager.getCookie("user_id"),
+        companionName: this.firstStepData.name,
+        companionSurname: this.firstStepData.surname,
+      }
+      let patientId;
+      await FetchUtil.postData("./php/check-animal.php", patientData).then(async (response) => {
+        if (response.status == "already present") {
+          let parseData = JSON.parse(response.data);
+          patientId = parseData['id'];
+        } else {
+          await FetchUtil.postData("./php/insert-Animal.php", patientData).then((response) => {
+            if (response.status == "success") {
+              let parseData = JSON.parse(response.data);
+              patientId = parseData['LAST_INSERT_ID()'];
+            } else {
+              console.log(response.status);
+            }
+          });
+        }
+      });
     });
   }
 

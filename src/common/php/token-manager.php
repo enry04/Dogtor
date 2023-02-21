@@ -6,8 +6,8 @@ class TokenManager
         @session_start();
 
         if (!TokenManager::isLogged()) {
-            $_SESSION['user_id'] = @session_id();
-            setcookie('user_id', @session_id(), (time() + (60*60*24*10)), '/');
+            $_SESSION['session_id'] = @session_id();
+            setcookie('session_id', @session_id(), (time() + (60*60*24*10)), '/');
         }
     }
     static function logout()
