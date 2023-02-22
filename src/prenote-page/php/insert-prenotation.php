@@ -18,7 +18,7 @@ $visitState = $data->visitState;
 $result = null;
 
 try {
-    $query = $pdo->prepare("INSERT INTO tPrenotazione (idAnimale, motivazione, descrizione, data, ora, gravita) VALUES (:patientId, :motivation, :description, :visitDate, :visitTime, 'da confermare', :visitState)");
+    $query = $pdo->prepare("INSERT INTO `tPrenotazione`(`id`, `idAnimale`, `motivazione`, `descrizione`, `data`, `ora`, `stato`, `gravita`) VALUES (:patientId, :motivation, :descriptione, :visitDate, :visitTime, 'da confermare', :visitState)");
     $query->execute(['patientId' => $patientId, 'motivation' => $motivation, 'description' => $description, 'visitDate' => $visitDate, 'visitTime' => $visitTime, 'visitState' => $visitState]);
     $result = array(
         'data' => null,

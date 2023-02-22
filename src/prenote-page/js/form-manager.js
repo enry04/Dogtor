@@ -73,6 +73,7 @@ class FormManager {
         visitTime: this.elements.secondStep.visitTime.value,
         visitState: this.elements.secondStep.stateSelect.value,
       };
+      debugger
       const patientData = {
         name: this.firstStepData.patient,
         birth: this.firstStepData.birth,
@@ -92,7 +93,7 @@ class FormManager {
             patientId = parseData["id"];
           } else {
             await FetchUtil.postData(
-              "./php/insert-Animal.php",
+              "./php/insert-animal.php",
               patientData
             ).then((response) => {
               if (response.status == "success") {
@@ -106,11 +107,11 @@ class FormManager {
         }
       );
       const prenotationData = {
-        patientId: patientId,
+        patientId: parseInt(patientId),
         motivation: this.secondStepData.motivation,
         description: this.secondStepData.description,
         visitDate: this.secondStepData.visitDate,
-        visitTime: this.secondStepData.visitTime,
+        visitTime: this.secondStepData.visitTime + ":00",
         visitState: this.secondStepData.visitState,
       };
       await FetchUtil.postData(
@@ -124,11 +125,9 @@ class FormManager {
             "./php/insert-prenotation.php",
             prenotationData
           ).then((response) => {
-            if (response.status == "success") {
-              
-            } else {
+            if (response.status == "error") {
               console.log(response.data);
-            }
+            } 
           });
         }
       });
