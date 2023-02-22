@@ -6,35 +6,36 @@ class TokenManager
         @session_start();
 
         if (!TokenManager::isLogged()) {
-            $_SESSION['user_id'] = @session_id();
-            setcookie('user_id', @session_id(), (time() + (60*60*24*10)), '/');
+            $_SESSION['session_id'] = @session_id();
+            setcookie('session_id', @session_id(), (time() + (60*60*24*10)), '/');
         }
     }
     static function logout()
     {
         TokenManager::unauthenticate();
         unset($_SESSION['user_id']);
-        setcookie("user_id", "", time() - (60*60*24), '/');
-        header("Location: ../../../index.php");
+        unset($_SESSION['user_type']);
+        setcookie("user_id", "", time() - (60*10), '/');
         setcookie('user_type', "", time() - (60*10), '/');
+        header("Location: ../../../index.php");
         exit;
     }
 
     static function authenticate($userId, $userType)
     {
-        setcookie('user_auth', $userId, time() + (60*10), '/');
-        setcookie('user_type', $userType, time() + (60*10), '/');
+        setcookie('user_id', $userId, time() + (60*60), '/');
+        setcookie('user_type', $userType, time() + (60*60), '/');
     }
 
     static function unauthenticate()
     {
-        setcookie("user_auth", "", time() - (60*10), '/');
+        setcookie("user_id", "", time() - (60*10), '/');
         setcookie('user_type', "", time() - (60*10), '/');
     }
 
     static function isAuthenticated()
     {
-        return isset($_COOKIE['user_auth']);
+        return isset($_COOKIE['user_id']);
     }
     static function isLogged()
     {

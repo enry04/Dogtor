@@ -79,3 +79,32 @@ username   password
 codice     mail
 Cap    Via Ncivico
 Telefono + telefoni(opzionale)
+
+**Prenote from (first part)**
+
+nomeAnimale -> text (no num);
+dataNascita -> date;
+luogoNascita -> text (no num);
+luogoResidenza -> text (no num);
+specie -> text (no num);
+razza -> text (no num);
+nomeAccompagnatore -> text(no num);
+cognomeAccompagnatore -> text(no num);
+
+nomeAnimale dataNascita
+luogoNascita luogoResidenza
+specie       razza
+nomeAccompagnatore cognomeAccompagnatore
+
+**Prenote form (second part)**
+
+motivazione -> text (no num);
+descricazione -> text (no num);
+dataPrenotazione -> date;
+ora -> dateTime;
+gravità -> select;
+
+Motivazione descrizione
+dataPrenotazione ora
+        gravità
+

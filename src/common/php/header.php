@@ -7,9 +7,27 @@
             <h4>
                 <a <?= ($page == "main") ? $active : '' ?> class="header-option" href="../main-page/main-page.php"> Home </a>
             </h4>
-            <h4>
-                <a <?= ($page == "prenote") ? $active : '' ?> class="header-option" href="../prenote-visit/prenote-page.php"> Prenota visita </a>
-            </h4>
+            <?php
+            if ($_COOKIE['user_type'] == 'utente') {
+            ?>
+                <h4>
+                    <a <?= ($page == "prenote") ? $active : '' ?> class="header-option" href="../prenote-page/prenote-page.php"> Prenota visita </a>
+                </h4>
+            <?php
+            } else if ($_COOKIE['user_type'] == 'medico') {
+            ?>
+                <h4>
+                    <a <?= ($page == "prenote") ? $active : '' ?> class="header-option" href="../prenote-page/prenote-page.php"> Gestione visite </a>
+                </h4>
+            <?php
+            } else if ($_COOKIE['user_type'] == 'admin') {
+            ?>
+                <h4>
+                    <a <?= ($page == "prenote") ? $active : '' ?> class="header-option" href="../prenote-page/prenote-page.php"> Gestione visite </a>
+                </h4>
+            <?php
+            }
+            ?>
             <h4 class="popUp-block">
                 <div class="hamburger-container">
                     <input type="checkbox" class="option-btn">

@@ -1,0 +1,12 @@
+
+.step {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+}
+
+.hide {
+  display: none;
+}

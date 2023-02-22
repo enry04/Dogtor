@@ -25,9 +25,9 @@
             <h4>
                 Registrati
             </h4>
-            <h4 class="error-info">
+            <h5 class="error-info">
 
-            </h4>
+            </h5>
             <div class="form-container">
                 <form method="post">
                     <div class="row">
