@@ -34,6 +34,7 @@ class FormManager {
         descriptionText: this.rootElement.querySelector(".description-text"),
         visitDate: this.rootElement.querySelector(".visit-date"),
         visitTime: this.rootElement.querySelector(".visit-time"),
+        stateSelect: this.rootElement.querySelector("select"),
         previousBtn: this.rootElement.querySelector(".previous-btn"),
         confirmBtn: this.rootElement.querySelector(".confirm-btn"),
       },
@@ -70,8 +71,9 @@ class FormManager {
         description: this.elements.secondStep.descriptionText.value,
         visitDate: this.elements.secondStep.visitDate.value,
         visitTime: this.elements.secondStep.visitTime.value,
+        visitState: this.elements.secondStep.stateSelect.value,
       };
-      let patientData = {
+      const patientData = {
         name: this.firstStepData.patient,
         birth: this.firstStepData.birth,
         bornPlace: this.firstStepData.born,
@@ -81,19 +83,51 @@ class FormManager {
         ownerId: CookieManager.getCookie("user_id"),
         companionName: this.firstStepData.name,
         companionSurname: this.firstStepData.surname,
-      }
+      };
       let patientId;
-      await FetchUtil.postData("./php/check-animal.php", patientData).then(async (response) => {
+      await FetchUtil.postData("./php/check-animal.php", patientData).then(
+        async (response) => {
+          if (response.status == "already present") {
+            let parseData = JSON.parse(response.data);
+            patientId = parseData["id"];
+          } else {
+            await FetchUtil.postData(
+              "./php/insert-Animal.php",
+              patientData
+            ).then((response) => {
+              if (response.status == "success") {
+                let parseData = JSON.parse(response.data);
+                patientId = parseData["LAST_INSERT_ID()"];
+              } else {
+                console.log(response.status);
+              }
+            });
+          }
+        }
+      );
+      const prenotationData = {
+        patientId: patientId,
+        motivation: this.secondStepData.motivation,
+        description: this.secondStepData.description,
+        visitDate: this.secondStepData.visitDate,
+        visitTime: this.secondStepData.visitTime,
+        visitState: this.secondStepData.visitState,
+      };
+      await FetchUtil.postData(
+        "./php/check-prenotation.php",
+        prenotationData
+      ).then(async (response) => {
         if (response.status == "already present") {
-          let parseData = JSON.parse(response.data);
-          patientId = parseData['id'];
+          //error
         } else {
-          await FetchUtil.postData("./php/insert-Animal.php", patientData).then((response) => {
+          await FetchUtil.postData(
+            "./php/insert-prenotation.php",
+            prenotationData
+          ).then((response) => {
             if (response.status == "success") {
-              let parseData = JSON.parse(response.data);
-              patientId = parseData['LAST_INSERT_ID()'];
+              
             } else {
-              console.log(response.status);
+              console.log(response.data);
             }
           });
         }

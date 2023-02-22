@@ -38,7 +38,7 @@
                                 <span>Nome paziente</span>
                             </div>
                             <div class="input-container">
-                                <input type="date" class="birth-date" required max=`time()`>
+                                <input type="date" class="birth-date" required max="<?= date('Y-m-d') ?>" min="1850-01-01">
                                 <span>Data di nascita</span>
                             </div>
                         </div>
@@ -89,11 +89,11 @@
                         </div>
                         <div class="row">
                             <div class="input-container">
-                                <input type="date" required class="visit-date" min=`time()`>
+                                <input type="date" required class="visit-date" min="<?= date('Y-m-d') ?>">
                                 <span>Data visita</span>
                             </div>
                             <div class="input-container">
-                                <input type="time" required class="visit-time">
+                                <input type="time" required class="visit-time" min="09:00" max="19:00">
                                 <span>Ora visita</span>
                             </div>
                         </div>
@@ -104,11 +104,11 @@
                                     <option value="urgente">Urgente</option>
                                     <option value="non urgente">Non urgente</option>
                                 </select>
-                           </div>
+                            </div>
                         </div>
                         <div class="row">
                             <input type="button" value="Indietro" class="submit-btn previous-btn">
-                            <input type="submit" value="Conferma" class="submit-btn confirm-btn" >
+                            <input type="submit" value="Conferma" class="submit-btn confirm-btn">
                         </div>
                     </section>
                 </form>
