@@ -8,19 +8,17 @@ $pdo = $mySql->getConnection();
 $json = file_get_contents("php://input");
 $data = json_decode($json);
 
-$patientId = $data->patientId;
-$motivation = $data->motivation;
-$description = $data->description;
 $visitDate = $data->visitDate;
+$visitTime = $data->visitTime;
 
-$query = $pdo->prepare("");
-$query->execute([]);
-$animalData = $query->fetch();
+$query = $pdo->prepare("SELECT * FROM tPrenotazione WHERE data=:visitDate AND HOUR(ora) = :visitTime");
+$query->execute(['visitDate' => $visitDate, 'visitTime' => $visitTime]);
+$prenotationData = $query->fetch();
 $result = null;
 
-if ($animalData != null) {
+if ($prenotationData != null) {
     $result = array(
-        "data" => json_encode($animalData),
+        "data" => json_encode($prenotationData),
         "status" => "already present",
     );
 } else {
