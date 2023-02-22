@@ -23,8 +23,8 @@ class TokenManager
 
     static function authenticate($userId, $userType)
     {
-        setcookie('user_id', $userId, time() + (60*10), '/');
-        setcookie('user_type', $userType, time() + (60*10), '/');
+        setcookie('user_id', $userId, time() + (60*60), '/');
+        setcookie('user_type', $userType, time() + (60*60), '/');
     }
 
     static function unauthenticate()

@@ -39,6 +39,7 @@ class FormManager {
         confirmBtn: this.rootElement.querySelector(".confirm-btn"),
       },
       form: this.rootElement.querySelector("form"),
+      errorInfo: document.querySelector(".error-info"),
     };
     this.showStep();
   }
@@ -66,6 +67,7 @@ class FormManager {
     });
     this.elements.form.addEventListener("submit", async (event) => {
       event.preventDefault();
+      let isValid = true;
       this.secondStepData = {
         motivation: this.elements.secondStep.motivationText.value,
         description: this.elements.secondStep.descriptionText.value,
@@ -73,7 +75,6 @@ class FormManager {
         visitTime: this.elements.secondStep.visitTime.value,
         visitState: this.elements.secondStep.stateSelect.value,
       };
-      debugger
       const patientData = {
         name: this.firstStepData.patient,
         birth: this.firstStepData.birth,
@@ -101,6 +102,7 @@ class FormManager {
                 patientId = parseData["LAST_INSERT_ID()"];
               } else {
                 console.log(response.status);
+                isValid = false;
               }
             });
           }
@@ -111,7 +113,7 @@ class FormManager {
         motivation: this.secondStepData.motivation,
         description: this.secondStepData.description,
         visitDate: this.secondStepData.visitDate,
-        visitTime: this.secondStepData.visitTime + ":00",
+        visitTime: this.secondStepData.visitTime,
         visitState: this.secondStepData.visitState,
       };
       await FetchUtil.postData(
@@ -119,7 +121,8 @@ class FormManager {
         prenotationData
       ).then(async (response) => {
         if (response.status == "already present") {
-          //error
+          isValid = false;
+          this.elements.errorInfo.textContent = "Orario occupato";
         } else {
           await FetchUtil.postData(
             "./php/insert-prenotation.php",
@@ -127,10 +130,14 @@ class FormManager {
           ).then((response) => {
             if (response.status == "error") {
               console.log(response.data);
-            } 
+              isValid = false;
+            }
           });
         }
       });
+      if(isValid){
+        this.elements.form.reset();
+      }
     });
   }
 

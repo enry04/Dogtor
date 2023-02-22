@@ -11,7 +11,7 @@ $data = json_decode($json);
 $visitDate = $data->visitDate;
 $visitTime = $data->visitTime;
 
-$query = $pdo->prepare("SELECT * FROM tPrenotazione WHERE data=:visitDate AND HOUR(ora) = :visitTime");
+$query = $pdo->prepare("SELECT * FROM tPrenotazione WHERE tPrenotazione.data=:visitDate AND HOUR(ora) = HOUR(:visitTime)");
 $query->execute(['visitDate' => $visitDate, 'visitTime' => $visitTime]);
 $prenotationData = $query->fetch();
 $result = null;

@@ -38,7 +38,7 @@
                                 <span>Nome paziente</span>
                             </div>
                             <div class="input-container">
-                                <input type="date" class="birth-date" required max="<?= date('Y-m-d') ?>" min="1850-01-01">
+                                <input type="date" class="birth-date" required max="<?= date('Y-m-d') ?>" min="1850-01-01" placeholder=" ">
                                 <span>Data di nascita</span>
                             </div>
                         </div>
@@ -89,11 +89,11 @@
                         </div>
                         <div class="row">
                             <div class="input-container">
-                                <input type="date" required class="visit-date" min="<?= date('Y-m-d') ?>">
+                                <input type="date" required class="visit-date" min="<?= date('Y-m-d') ?>" placeholder=" ">
                                 <span>Data visita</span>
                             </div>
                             <div class="input-container">
-                                <input type="time" required class="visit-time" min="09:00" max="19:00">
+                                <input type="time" required class="visit-time" min="09:00" max="19:00" placeholder=" ">
                                 <span>Ora visita</span>
                             </div>
                         </div>

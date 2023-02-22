@@ -121,8 +121,6 @@ select {
   cursor: pointer;
   outline: 0;
 }
-
 .error-info {
   color: red;
 }
-
