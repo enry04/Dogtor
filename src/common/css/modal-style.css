@@ -1,0 +1,48 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  transition: all 1s;
+  background-color: #fffffe;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-hide {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.modal-show {
+  visibility: visible;
+  opacity: 0.9;
+}
+
+.modal-container {
+  padding: 20px;
+  margin-bottom: 300px;
+  border-radius: 5px;
+  width: 30%;
+  text-align: center;
+  position: relative;
+}
+
+.close-modal {
+  color: black;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+  color: red;
+  text-decoration: none;
+  cursor: pointer;
+}

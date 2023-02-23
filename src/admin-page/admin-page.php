@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="./css/admin-page-style.css">
     <link rel="stylesheet" href="../common/css/pop-up-style.css">
     <link rel="stylesheet" href="../common/css/table-style.css">
+    <link rel="stylesheet" href="../common/css/modal-style.css">
     <link rel="icon" href="../common/images/page-logo.png">
     <title>Dogtor</title>
 </head>
@@ -24,15 +25,19 @@
     ?>
     <main>
         <section>
-            <h4>Prenotazioni da confermare</h4>
+            <h4>Prenotazioni da gestire</h4>
             <div class="table-container" id="prenotations">
-                <h4 class="no-prenotation-text no-data-text hide">Non c'è nessuna prenotazione da confermare</h4>
+                <h4 class="no-prenotation-text no-data-text hide">Non c'è nessuna prenotazione da gestire</h4>
                 <table class="prenotations-table">
 
                 </table>
             </div>
         </section>
     </main>
+    <?php
+    require_once("../common/html/popup-template.html");
+    ?>
+    <script src="./js/admin-view.js" type="module"></script>
 </body>
 
 </html>
