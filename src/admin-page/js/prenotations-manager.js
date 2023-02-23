@@ -8,7 +8,6 @@ class PrenotationsManager {
       "proprietario",
       "accompagnatore",
       "motivazione",
-      "motivazione",
       "data",
       "gravita",
     ];

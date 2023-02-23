@@ -31,7 +31,6 @@
 
                 </table>
             </div>
-
         </section>
     </main>
 </body>
