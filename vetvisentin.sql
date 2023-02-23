@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Creato il: Feb 20, 2023 alle 13:28
+-- Creato il: Feb 23, 2023 alle 08:36
 -- Versione del server: 10.4.27-MariaDB
 -- Versione PHP: 8.0.25
 
@@ -39,6 +39,28 @@ CREATE TABLE `tAnimale` (
   `nomeAccompagnatore` varchar(100) DEFAULT NULL,
   `cognomeAccompagnatore` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dump dei dati per la tabella `tAnimale`
+--
+
+INSERT INTO `tAnimale` (`id`, `nome`, `dataNascita`, `luogoNascita`, `luogoResidenza`, `specie`, `razza`, `idProprietario`, `nomeAccompagnatore`, `cognomeAccompagnatore`) VALUES
+(1, 'fdf', '2023-02-22', 'd', 'cd', 'cd', 'cd', 16, 'cd', 'cd'),
+(2, 'Vicky', '2014-03-22', 'Udine', 'Trieste', 'cane', 'flat coated retriver', 16, 'Enrico', 'Visentin'),
+(3, 'ckosd', '1850-01-18', 'plvd', 'plcok', 'okcok', 'oko', 16, 'ovod', 'okc'),
+(4, 'vd', '2023-02-17', 'fdij', 'jiv', 'vjn', 'ijvidj', 16, 'jiidj', 'ijv'),
+(5, 'cdk', '2023-02-15', 'ck', 'mk', 'kck', 'kmck', 16, 'kcmk', 'kmc'),
+(6, 'cdk', '2023-02-07', 'cdl', 'lvl', 'vl', 'lvcl', 16, 'lcl', 'lc'),
+(7, 'csk', '2023-02-10', 'c', 'cd', 'vd', 'vd', 16, 'd', 'cd'),
+(8, 'cms', '2023-02-18', 'cd', 'cd', 'cd', 'd', 16, 'd', 'dc'),
+(9, 'vd', '1850-01-17', 'fe', 'fd', 'fds', 'fds', 16, 'fsd', 'fdfsf'),
+(10, 'lc', '2023-02-09', 'cd', 'vd', 'vd', 'vd', 16, 'vd', 'vf'),
+(11, 'cd', '2023-02-16', 'cd', 'c', 'cd', 'cd', 16, 'cd', 'cd'),
+(12, 'cdij', '2023-02-08', 'vd', 'vd', 'cdvs', 'vd', 16, 'vd', 'cd'),
+(13, 'vd', '2023-02-15', 'vd', 'vd', 'd', 'cd', 16, 'cd', 'cd'),
+(14, 'dwdw', '2023-02-09', 'dwk', 'cd', 'idsji', 'ijcdj', 16, 'cjdij', 'cidij'),
+(15, 'fijd', '2023-02-05', 'cs', 'cd', 'cd', 'cd', 16, 'cd', 'vv'),
+(16, 'cod', '2023-02-15', 'csc', 'cs', 'cs', 'cs', 16, 'cd', 'cd');
 
 -- --------------------------------------------------------
 
@@ -109,6 +131,14 @@ CREATE TABLE `tPrenotazione` (
   `stato` varchar(100) NOT NULL,
   `gravita` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dump dei dati per la tabella `tPrenotazione`
+--
+
+INSERT INTO `tPrenotazione` (`id`, `idAnimale`, `motivazione`, `descrizione`, `nota`, `data`, `ora`, `stato`, `gravita`) VALUES
+(5, 13, 'cd', 'cd', NULL, '2023-02-25', '11:45:00', 'da confermare', 'non urgente'),
+(6, 14, 'cdjciji', 'ijcdiji', NULL, '2023-02-25', '12:55:00', 'da confermare', 'non urgente');
 
 -- --------------------------------------------------------
 
@@ -230,13 +260,19 @@ ALTER TABLE `tUtente`
 -- AUTO_INCREMENT per la tabella `tAnimale`
 --
 ALTER TABLE `tAnimale`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT per la tabella `tIndirizzo`
 --
 ALTER TABLE `tIndirizzo`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+
+--
+-- AUTO_INCREMENT per la tabella `tPrenotazione`
+--
+ALTER TABLE `tPrenotazione`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT per la tabella `tTelefono`
