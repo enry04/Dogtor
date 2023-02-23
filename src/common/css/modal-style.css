@@ -30,19 +30,3 @@
   text-align: center;
   position: relative;
 }
-
-.close-modal {
-  color: black;
-  position: absolute;
-  right: 5px;
-  top: 5px;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close-modal:hover,
-.close-modal:focus {
-  color: red;
-  text-decoration: none;
-  cursor: pointer;
-}

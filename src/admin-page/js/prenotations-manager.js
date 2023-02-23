@@ -19,8 +19,6 @@ class PrenotationsManager {
     ];
     this.tHead = this.rootElement.createTHead();
     this.tBody = this.rootElement.createTBody();
-    this.prenotationId;
-    this.currentRowIndex;
   }
 
   init() {
@@ -62,14 +60,39 @@ class PrenotationsManager {
     confirmBtns.forEach(confirmBtn => {
       confirmBtn.addEventListener("click", (event) => {
         confirmBtn.disabled = true;
+        const prenotationData = {
+            prenotationId: event.target.id,
+            status: "da effettuare",
+        }
+          FetchUtil.postData("./php/update-prenotation.php", prenotationData).then((response) => {
+            if (response.status == "success") {
+              let row = this.tBody.querySelector(`[id="${ event.target.attributes.getNamedItem('rowIndex').value}"]`);
+              row.remove();
+              this.checkTbody();
+            } else {
+              console.log(response.status);
+            }
+          });
       });
     })
     const removeBtns = this.tBody.querySelectorAll(".remove-btn");
     removeBtns.forEach(removeBtn => {
       removeBtn.addEventListener("click", (event) => {
-        this.currentRowIndex = event.target.attributes.getNamedItem('rowIndex').value;
-        this.prenotationId = event.target.id;
-        ModalManager.showModal("Aggiungi una nota (opzionale)");
+        removeBtn.disabled = true;
+        const prenotationData = {
+            prenotationId: event.target.id,
+            status: "annullata",
+        }
+        ModalManager.showModal("Aggiungi una nota (opzionale)", prenotationData.prenotationId);
+          FetchUtil.postData("./php/update-prenotation.php", prenotationData).then((response) => {
+            if (response.status == "success") {
+              let row = this.tBody.querySelector(`[id="${ event.target.attributes.getNamedItem('rowIndex').value}"]`);
+              row.remove();
+              this.checkTbody();
+            } else {
+              console.log(response.status);
+            }
+          });
       });
     })
   }
@@ -80,24 +103,6 @@ class PrenotationsManager {
       document.querySelector(".no-prenotation-text").classList.toggle("hide", false);
     }
   }
-
-  static submitCancellation() {
-    const prenotationData = {
-      prenotationId: this.prenotationId,
-      status: "da effettuare",
-    }
-    debugger
-    FetchUtil.postData("./php/update-prenotation.php", prenotationData).then((response) => {
-      if (response.status == "success") {
-        let row = this.tBody.querySelector(`[id="${this.currentRowIndex}"]`);
-        row.remove();
-        this.checkTbody();
-      } else {
-        console.log(response.status);
-      }
-    });
-  }
-
   getDetailsBtn(prenotationId, rowIndex) {
     let input = document.createElement("input");
     input.setAttribute("type", "button");
