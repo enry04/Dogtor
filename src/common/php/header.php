@@ -17,13 +17,13 @@
             } else if ($_COOKIE['user_type'] == 'medico') {
             ?>
                 <h4>
-                    <a <?= ($page == "prenote") ? $active : '' ?> class="header-option" href="../prenote-page/prenote-page.php"> Gestione visite </a>
+                    <a <?= ($page == "prenote") ? $active : '' ?> class="header-option" href="../doctor-page/doctor-page.php"> Gestione visite </a>
                 </h4>
             <?php
             } else if ($_COOKIE['user_type'] == 'admin') {
             ?>
                 <h4>
-                    <a <?= ($page == "prenote") ? $active : '' ?> class="header-option" href="../prenote-page/prenote-page.php"> Gestione visite </a>
+                    <a <?= ($page == "prenote") ? $active : '' ?> class="header-option" href="../admin-page/admin-page.php"> Gestione visite </a>
                 </h4>
             <?php
             }
