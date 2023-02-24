@@ -26,8 +26,8 @@
     <main>
         <h4>Dettagli della prenotazione</h4>
         <section>
-            <h5>Informazioni del proprietario...</h5>
-            <table class="user-table">
+            <h5>Informazioni della prenotazione...</h5>
+            <table class="prenotation-table">
 
             </table>
         </section>
@@ -38,12 +38,13 @@
             </table>
         </section>
         <section>
-            <h5>Informazioni della prenotazione...</h5>
-            <table class="prenotation-table">
+            <h5>Informazioni del proprietario...</h5>
+            <table class="owner-table">
 
             </table>
         </section>
     </main>
+    <script src="./js/details-view.js" type="module"></script>
 </body>
 
 </html>
