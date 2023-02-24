@@ -54,6 +54,7 @@ class PrenotationsManager {
     detailsBtns.forEach(detailBtn => {
       detailBtn.addEventListener("click", (event) => {
         detailBtn.disabled = true;
+        location.href = "../details-page/details-page.php?prenotationId=" + event.target.id;
       })
     });
     const confirmBtns = this.tBody.querySelectorAll(".confirm-btn");
@@ -61,18 +62,18 @@ class PrenotationsManager {
       confirmBtn.addEventListener("click", (event) => {
         confirmBtn.disabled = true;
         const prenotationData = {
-            prenotationId: event.target.id,
-            status: "da effettuare",
+          prenotationId: event.target.id,
+          status: "da effettuare",
         }
-          FetchUtil.postData("./php/update-prenotation.php", prenotationData).then((response) => {
-            if (response.status == "success") {
-              let row = this.tBody.querySelector(`[id="${ event.target.attributes.getNamedItem('rowIndex').value}"]`);
-              row.remove();
-              this.checkTbody();
-            } else {
-              console.log(response.status);
-            }
-          });
+        FetchUtil.postData("./php/update-prenotation.php", prenotationData).then((response) => {
+          if (response.status == "success") {
+            let row = this.tBody.querySelector(`[id="${event.target.attributes.getNamedItem('rowIndex').value}"]`);
+            row.remove();
+            this.checkTbody();
+          } else {
+            console.log(response.status);
+          }
+        });
       });
     })
     const removeBtns = this.tBody.querySelectorAll(".remove-btn");
@@ -80,19 +81,19 @@ class PrenotationsManager {
       removeBtn.addEventListener("click", (event) => {
         removeBtn.disabled = true;
         const prenotationData = {
-            prenotationId: event.target.id,
-            status: "annullata",
+          prenotationId: event.target.id,
+          status: "annullata",
         }
         ModalManager.showModal("Aggiungi una nota (opzionale)", prenotationData.prenotationId);
-          FetchUtil.postData("./php/update-prenotation.php", prenotationData).then((response) => {
-            if (response.status == "success") {
-              let row = this.tBody.querySelector(`[id="${ event.target.attributes.getNamedItem('rowIndex').value}"]`);
-              row.remove();
-              this.checkTbody();
-            } else {
-              console.log(response.status);
-            }
-          });
+        FetchUtil.postData("./php/update-prenotation.php", prenotationData).then((response) => {
+          if (response.status == "success") {
+            let row = this.tBody.querySelector(`[id="${event.target.attributes.getNamedItem('rowIndex').value}"]`);
+            row.remove();
+            this.checkTbody();
+          } else {
+            console.log(response.status);
+          }
+        });
       });
     })
   }

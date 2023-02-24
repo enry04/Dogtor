@@ -16,7 +16,7 @@ FetchUtil.postData("./php/read-prenotations.php", {}).then((response) => {
         parseData.forEach(prenotationData => {
             prenotationsManager.setRowData(prenotationData['nomePaziente'], prenotationData['specie'], prenotationData['razza'], prenotationData['nomeUtente'], prenotationData['cognome'], prenotationData['nomeAccompagnatore'], prenotationData['cognomeAccompagnatore'], prenotationData['motivazione'], new Date(prenotationData['data']).toLocaleDateString("en-GB"), prenotationData['ora'], prenotationData['gravita'], rowIndex, prenotationData['idPrenotazione']);
             rowIndex++;
-        }); 
+        });
     } else {
         noPrenotationText.classList.toggle("hide", false);
         prenotationsTable.classList.toggle("hide", true);
