@@ -1,4 +1,3 @@
-import PrenotationsManager from "../../admin-page/js/prenotations-manager.js";
 import FetchUtil from "./fetch-util.js";
 
 class ModalManager {
