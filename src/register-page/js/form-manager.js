@@ -148,44 +148,27 @@ class FormManager {
         userId: userId,
         telephoneNumbers: this.getNumbers(),
       };
-      if(telephonesData.telephoneNumbers != [] && isToContinue){
+      if (telephonesData.telephoneNumbers != [] && isToContinue) {
         await FetchUtil.postData("./php/check-telephone-number.php", telephonesData).then(async (response) => {
-          if(response.status == "already present"){
+          if (response.status == "already present") {
             console.log("error");
-          }else {
-                await FetchUtil.postData("./php/insert-telephone-number.php", telephonesData).then( (response) => {
-                  if(response.status == "error"){
-                    console.log(response.data);
-                  }
-                });
+          } else {
+            await FetchUtil.postData("./php/insert-telephone-number.php", telephonesData).then((response) => {
+              if (response.status == "error") {
+                console.log(response.data);
               }
-          });
+            });
+          }
+        });
       }
-      if(isToContinue){
-        this.resetElements();
+      if (isToContinue) {
+        this.elements.errorInfo.textContent = "";
+        this.elements.secondaryTelephoneNumbers = [];
+        this.currentNumbers = 0;
+        this.elements.form.reset();
+        location.href = "../login-page/login-page.php";
       }
     });
-  }
-
-  resetElements() {
-    this.elements.name.value = "";
-    this.elements.surname.value = "";
-    this.elements.taxCode.value = "";
-    this.elements.userName.value = "";
-    this.elements.userName.value = "";
-    this.elements.password.value = "";
-    this.elements.email.value = "";
-    this.elements.postalCode.value = "";
-    this.elements.street.value = "";
-    this.elements.houseNumber.value = "";
-    this.elements.telephoneNumber.value = "";
-    for (let i = 0; i < this.elements.secondaryTelephoneNumbers.length; i++) {
-      this.elements.secondaryTelephoneNumbers[i].value = "";
-      this.rootElement.querySelector(`[id="${i}"]`).remove();
-    }
-    this.elements.secondaryTelephoneNumbers = [];
-    this.currentNumbers = 0;
-    this.elements.errorInfo.textContent = "";
   }
 
   getNumbers() {

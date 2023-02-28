@@ -24,13 +24,8 @@
 
     <main>
         <div class="text-container">
-            <h4 class="title-text">Benvenuto nel sito del Ministero <br>dell' ambiente!</h4>
-            <h5 class="description-text">Offriamo la possibilità di visualizzare gli<br>
-                animali e i vegetali presenti in ogni <br>
-                parco italiano!<br>
-                Il sito è costantemente aggiornato <br>
-                sia nella flora che nella fauna in<br>
-                ogni riserva naturale!</h5>
+            <h3 class="title-text">Benvenuto nella clinica <br>veterinaria Dogtor!</h3>
+            <h5 class="description-text">Registrati ed effettua il login al sito <br> per prenotare una visita riservata <br> al tuo cucciolo con il nostro medico!</h5>
         </div>
         <div class="dog-container"></div>
     </main>

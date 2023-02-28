@@ -54,7 +54,7 @@
                             <span>Password</span>
                         </div>
                         <div class="input-container">
-                            <input type="email" required class="email-text">
+                            <input type="email" required class="email-text" placeholder=" ">
                             <span>Email</span>
                         </div>
                     </div>

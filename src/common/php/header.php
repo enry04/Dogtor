@@ -4,27 +4,27 @@
     if (TokenManager::isAuthenticated()) {
     ?>
         <div class="right-header-container isAuth">
-            <h4>
+            <h3>
                 <a <?= ($page == "main") ? $active : '' ?> class="header-option" href="../main-page/main-page.php"> Home </a>
-            </h4>
+            </h3>
             <?php
             if ($_COOKIE['user_type'] == 'utente') {
             ?>
-                <h4>
+                <h3>
                     <a <?= ($page == "prenote") ? $active : '' ?> class="header-option" href="../prenote-page/prenote-page.php"> Prenota visita </a>
-                </h4>
+                </h3>
             <?php
             } else if ($_COOKIE['user_type'] == 'medico') {
             ?>
-                <h4>
+                <h3>
                     <a <?= ($page == "prenote") ? $active : '' ?> class="header-option" href="../doctor-page/doctor-page.php"> Gestione visite </a>
-                </h4>
+                </h3>
             <?php
             } else if ($_COOKIE['user_type'] == 'admin') {
             ?>
-                <h4>
+                <h3>
                     <a <?= ($page == "prenote") ? $active : '' ?> class="header-option" href="../admin-page/admin-page.php"> Gestione visite </a>
-                </h4>
+                </h3>
             <?php
             }
             ?>
@@ -55,12 +55,12 @@
     } else {
     ?>
         <div class="right-header-container notAuth">
-            <h4>
+            <h3>
                 <a <?= ($page == "main") ? $active : '' ?> class="header-option" href="../main-page/main-page.php"> Home </a>
-            </h4>
-            <h4>
+            </h3>
+            <h3>
                 <a <?= ($page == "login") ? $active : '' ?> class="header-option" href="../login-page/login-page.php"> Accedi </a>
-            </h4>
+            </h3>
         <?php
     }
         ?>
