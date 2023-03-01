@@ -43,7 +43,7 @@
                             <span>Cura</span>
                         </div>
                         <div class="input-container">
-                            <input type="number" class="price-text" value="35" min="15" max="100" required>
+                            <input type="number" class="price-text" value="35" min="35" max="100" required>
                             <span>Prezzo</span>
                         </div>
                     </div>

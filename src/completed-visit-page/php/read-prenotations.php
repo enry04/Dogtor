@@ -5,8 +5,8 @@ require("../../common/php/connection.php");
 $mysql = new ConnectionMySQL();
 $pdo = $mysql->getConnection();
 
-$query = $pdo->query("SELECT *, tPrenotazione.id AS idPrenotazione FROM tPrenotazione INNER JOIN tAnimale ON tPrenotazione.idAnimale = tAnimale.id WHERE  stato = 'da effettuare' AND (tPrenotazione.data < DATE(NOW()) OR (HOUR(tPrenotazione.ora) < HOUR(NOW()) AND tPrenotazione.data = DATE(NOW()))) ORDER BY data ASC, ora ASC");
-$visitData = $query->fetchAll();
+$query = $pdo->query("SELECT COUNT(*) AS nPrenotazioni FROM tPrenotazione WHERE MONTH(data) = MONTH(NOW())");
+$visitData = $query->fetch();
 $result = null;
 if ($visitData != null) {
     $result = array(

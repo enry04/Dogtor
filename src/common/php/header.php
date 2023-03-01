@@ -48,7 +48,7 @@
                             if ($_COOKIE['user_type'] == 'medico') {
                             ?>
                                 <h5 class="popUp-btn">
-                                    <a href="">Storico visite</a>
+                                    <a href="../completed-visit-page/completed-visit-page.php">Storico visite</a>
                                 </h5>
                             <?php
                             } else if ($_COOKIE['user_type'] == 'utente') {
