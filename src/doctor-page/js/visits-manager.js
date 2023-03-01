@@ -21,6 +21,7 @@ class VisitsManager {
     setRowData(species, breed, motivation, description, date, time, isSerious, state, rowIndex, prenotationId) {
         let data = [species + ", " + breed, motivation, description, date + " alle " + time, isSerious, state, this.getDetailsBtn(rowIndex, prenotationId)];
         let row = this.tBody.insertRow();
+        row.id = rowIndex;
         for (let i = 0; i < this.headerValues.length; i++) {
             let td = document.createElement("td");
             if (i < 6) {
@@ -34,7 +35,12 @@ class VisitsManager {
     }
 
     initEventListeners() {
-
+        const detailsBtns = this.tBody.querySelectorAll(".details-btn");
+        detailsBtns.forEach(detailBtn => {
+            detailBtn.addEventListener("click", (event) => {
+                location.href = "../details-page/details-page.php?prenotationId=" + event.target.id;
+            })
+        });
     }
 
     getDetailsBtn(rowIndex, prenotationId) {
