@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Creato il: Feb 23, 2023 alle 08:40
+-- Creato il: Mar 01, 2023 alle 22:07
 -- Versione del server: 10.4.27-MariaDB
 -- Versione PHP: 8.0.25
 
@@ -60,7 +60,12 @@ INSERT INTO `tAnimale` (`id`, `nome`, `dataNascita`, `luogoNascita`, `luogoResid
 (13, 'vd', '2023-02-15', 'vd', 'vd', 'd', 'cd', 16, 'cd', 'cd'),
 (14, 'dwdw', '2023-02-09', 'dwk', 'cd', 'idsji', 'ijcdj', 16, 'cjdij', 'cidij'),
 (15, 'fijd', '2023-02-05', 'cs', 'cd', 'cd', 'cd', 16, 'cd', 'vv'),
-(16, 'cod', '2023-02-15', 'csc', 'cs', 'cs', 'cs', 16, 'cd', 'cd');
+(16, 'cod', '2023-02-15', 'csc', 'cs', 'cs', 'cs', 16, 'cd', 'cd'),
+(17, 'Johnathan', '2023-02-02', 'Torino', 'Napoli', 'cane', 'bassotto', 18, 'Roberto', 'Pizzignach'),
+(18, 'Jooohgn', '2023-02-28', 'Napoli', 'Napoli', 'cane', 'bulldog', 16, 'Andrea', 'Pizzignach'),
+(19, 'Can', '2022-12-30', 'Roma', 'Roma', 'cane', 'bulldog', 20, 'Sergio', 'Ricci'),
+(20, 'fdf', '2023-02-28', 'fds', 'fds', 'fsds', 'fds', 20, 'fds', 'fsd'),
+(21, 'fdsfs', '2023-02-28', 'fd', 'fds', 'fdsfs', 'fdsfsdf', 20, 'fds', 'fsdfs');
 
 -- --------------------------------------------------------
 
@@ -112,7 +117,10 @@ INSERT INTO `tIndirizzo` (`id`, `CAP`, `via`, `numeroCivico`) VALUES
 (30, 23432, 'vikmvmid', 3242),
 (31, 323, 'cdikc', 34),
 (32, 3243, 'fd', 33223),
-(33, 32, 'fe', 32);
+(33, 32, 'fe', 32),
+(34, 43212, 'Via Monte Grappa', 7),
+(35, 243, 'Via Giulia', 2),
+(36, 3243, 'dsok', 23);
 
 -- --------------------------------------------------------
 
@@ -137,8 +145,12 @@ CREATE TABLE `tPrenotazione` (
 --
 
 INSERT INTO `tPrenotazione` (`id`, `idAnimale`, `motivazione`, `descrizione`, `nota`, `data`, `ora`, `stato`, `gravita`) VALUES
-(5, 13, 'cd', 'cd', NULL, '2023-02-25', '11:45:00', 'da confermare', 'non urgente'),
-(6, 14, 'cdjciji', 'ijcdiji', NULL, '2023-02-25', '12:55:00', 'da confermare', 'non urgente');
+(5, 13, 'cd', 'cd', 'l', '2023-02-25', '11:00:00', 'effettuata', 'non urgente'),
+(6, 14, 'cdjciji', 'ijcdiji', 'dsjdisids', '2023-02-25', '12:00:00', 'effettuata', 'non urgente'),
+(7, 17, 'mal di pancia', 'mangiato nutella', NULL, '2023-03-16', '16:00:00', 'da effettuare', 'urgente'),
+(8, 18, 'Ha mal di testa', 'Ha sbattuto la testa', NULL, '2023-03-01', '18:00:00', 'effettuata', 'non urgente'),
+(9, 20, 'fs', 'fds', NULL, '2023-03-03', '00:00:15', 'da effettuare', 'non urgente'),
+(10, 21, 'fds', 'sdfds', 'non mi andava', '2023-03-02', '10:02:00', 'annullata', 'non urgente');
 
 -- --------------------------------------------------------
 
@@ -152,8 +164,17 @@ CREATE TABLE `tRisultato` (
   `motivazione` varchar(1000) NOT NULL,
   `diagnosi` varchar(100) NOT NULL,
   `cura` varchar(100) NOT NULL,
-  `prezzo` varchar(100) NOT NULL
+  `prezzo` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dump dei dati per la tabella `tRisultato`
+--
+
+INSERT INTO `tRisultato` (`id`, `idPrenotazione`, `motivazione`, `diagnosi`, `cura`, `prezzo`) VALUES
+(2, 5, 'fdfd', 'fdfd', 'fdfd', 35),
+(3, 6, 'Massaggio', 'mal di testa', 'testate', 35),
+(4, 8, 'cranio rotto', 'trauma cranico', 'preso a testate', 50);
 
 -- --------------------------------------------------------
 
@@ -178,7 +199,11 @@ INSERT INTO `tTelefono` (`id`, `numero`, `idUtente`) VALUES
 (4, '534534534', 12),
 (5, '25352525', 14),
 (6, '5345345345', 15),
-(7, '5353453535', 15);
+(7, '5353453535', 15),
+(8, '54353453', 18),
+(9, '5435345345', 18),
+(10, '53453453', 19),
+(11, '423424', 20);
 
 -- --------------------------------------------------------
 
@@ -207,7 +232,10 @@ INSERT INTO `tUtente` (`id`, `nome`, `cognome`, `codiceFiscale`, `nomeUtente`, `
 (1, 'Enrico', 'Visentin', '9400Vsncooo', 'enrico', 'enrico04v@gmail.com', 'ciao123', 9, 'medico', '2456454534346'),
 (15, 'daniele', 'sanchez', 'dokid', 'sanci', 'sanchez@godo.com', 'ciao123', 30, 'admin', '53453453453'),
 (16, 'utente', 'utente', 'utente', 'utente', 'utente@godo.com', 'ciao123', 31, 'utente', '435354353'),
-(17, 'fijcdjn', 'vn dv', 'cmd mcdl', 'clkdmcd', 'cldmcd@o.c', 'cdmd', 32, 'utente', '23223233223');
+(17, 'fijcdjn', 'vn dv', 'cmd mcdl', 'clkdmcd', 'cldmcd@o.c', 'cdmd', 32, 'utente', '23223233223'),
+(18, 'Andrea', 'Sauli', 'ANDIUI0JV0WIJVIWJV0WJ', 'andreSau', 'andreSau@ei.ou', 'ciao123', 34, 'utente', '54353535'),
+(19, 'Elena', 'De colombani', '3OJNCDNJNC', 'ele', 'ele@deco.com', 'ciao123', 35, 'utente', '4343435'),
+(20, 'fabio', 'crisma', 'fjeidfnjqn', 'fabione', 'fabione@od.com', 'ciao123', 36, 'utente', '234242');
 
 --
 -- Indici per le tabelle scaricate
@@ -260,31 +288,37 @@ ALTER TABLE `tUtente`
 -- AUTO_INCREMENT per la tabella `tAnimale`
 --
 ALTER TABLE `tAnimale`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT per la tabella `tIndirizzo`
 --
 ALTER TABLE `tIndirizzo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT per la tabella `tPrenotazione`
 --
 ALTER TABLE `tPrenotazione`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT per la tabella `tRisultato`
+--
+ALTER TABLE `tRisultato`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT per la tabella `tTelefono`
 --
 ALTER TABLE `tTelefono`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT per la tabella `tUtente`
 --
 ALTER TABLE `tUtente`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
