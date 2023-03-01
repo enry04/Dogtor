@@ -4,9 +4,9 @@ import FutureManager from "./future-manager.js";
 import OdiernManager from "./odiern-manager.js";
 import PastManager from "./past-manager.js";
 
-/* const parentElement = document.querySelector("main");
+const parentElement = document.querySelector("main");
 const filterManager = new FilterManager(parentElement);
-filterManager.init(); */
+filterManager.init();
 
 const odiernTable = document.querySelector(".odiern-table");
 const noOdiernText = document.querySelector(".no-odiern-text");

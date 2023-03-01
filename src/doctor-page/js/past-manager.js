@@ -39,7 +39,6 @@ class PastManager {
         const detailsBtns = this.tBody.querySelectorAll(".details-btn");
         detailsBtns.forEach(detailBtn => {
             detailBtn.addEventListener("click", (event) => {
-                detailBtn.disabled = true;
                 location.href = "../details-page/details-page.php?prenotationId=" + event.target.id;
             })
         });
@@ -47,7 +46,6 @@ class PastManager {
         const confirmBtns = this.tBody.querySelectorAll(".confirm-btn");
         confirmBtns.forEach(confirmBtn => {
             confirmBtn.addEventListener("click", (event) => {
-                confirmBtn.disabled = true;
                 location.href = "../visit-result-page/visit-result-page.php?prenotationId=" + event.target.id;
             })
         })

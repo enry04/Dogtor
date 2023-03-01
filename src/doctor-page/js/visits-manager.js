@@ -1,7 +1,7 @@
 class VisitsManager {
     constructor(parentElement) {
         this.rootElement = parentElement;
-        this.headerValues = ["Paziente", "Motivazione", "Descrizione", "Data", "Gravità", "Dettagli", "Risultato"];
+        this.headerValues = ["Paziente", "Motivazione", "Descrizione", "Data", "Gravità", "Stato", "Dettagli"];
         this.tHead = this.rootElement.createTHead();
         this.tBody = this.rootElement.createTBody();
     }
@@ -18,27 +18,40 @@ class VisitsManager {
         }
     }
 
-    setRowData(species, breed, motivation, description, date, time, state) {
-        let data = [species + ", " + breed, motivation, description, date + " alle " + time, state, this.getDetailsBtn(), this.getDiagnosisBtn()];
+    setRowData(species, breed, motivation, description, date, time, isSerious, state, rowIndex, prenotationId) {
+        let data = [species + ", " + breed, motivation, description, date + " alle " + time, isSerious, state, this.getDetailsBtn(rowIndex, prenotationId)];
         let row = this.tBody.insertRow();
+        row.id = rowIndex;
         for (let i = 0; i < this.headerValues.length; i++) {
             let td = document.createElement("td");
-            if (i < 8) {
+            if (i < 6) {
                 td.innerHTML = data[i];
             } else {
                 td.appendChild(data[i]);
             }
             row.appendChild(td);
         }
-        this.initEventListeners()
+        this.initEventListeners();
     }
 
-    getDetailsBtn(){
-        return "dettagli";
+    initEventListeners() {
+        const detailsBtns = this.tBody.querySelectorAll(".details-btn");
+        detailsBtns.forEach(detailBtn => {
+            detailBtn.addEventListener("click", (event) => {
+                location.href = "../details-page/details-page.php?prenotationId=" + event.target.id;
+            })
+        });
     }
 
-    getDiagnosisBtn(){
-        return "Invia risultato";
+    getDetailsBtn(rowIndex, prenotationId) {
+        let input = document.createElement("input");
+        input.setAttribute("type", "button");
+        input.setAttribute("value", "Dettagli");
+        input.classList.toggle("details-btn", true);
+        input.classList.toggle("table-btn", true);
+        input.setAttribute("rowIndex", rowIndex);
+        input.id = prenotationId;
+        return input;
     }
 }
 

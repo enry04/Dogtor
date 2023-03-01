@@ -15,7 +15,7 @@ await FetchUtil.postData("./php/read-prenotation.php", prenotationData).then((re
         prenotationManager.init();
         let parseData = JSON.parse(response.data);
         patientId = parseData["idAnimale"];
-        prenotationManager.setRowData(parseData["motivazione"], parseData["descrizione"], parseData["data"], parseData["ora"], parseData["gravita"]);
+        prenotationManager.setRowData(parseData["motivazione"], parseData["descrizione"], new Date(parseData["data"]).toLocaleDateString("en-GB"), parseData["ora"], parseData["gravita"]);
     } else {
         console.log(response.status);
     }

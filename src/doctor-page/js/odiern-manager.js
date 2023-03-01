@@ -39,7 +39,6 @@ class OdiernManager {
         const detailsBtns = this.tBody.querySelectorAll(".details-btn");
         detailsBtns.forEach(detailBtn => {
             detailBtn.addEventListener("click", (event) => {
-                detailBtn.disabled = true;
                 location.href = "../details-page/details-page.php?prenotationId=" + event.target.id;
             })
         });

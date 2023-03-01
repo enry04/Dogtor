@@ -30,33 +30,34 @@
                 <input type="button" class="search-btn" value="Cerca">
             </div>
         </section>
-        <section>
+        <section class="odiern-section">
             <h4>Le visite odierne</h4>
             <h4 class="no-odiern-text no-data-text hide">Non c'è nessuna visita da effettuare oggi</h4>
             <table class="odiern-table">
 
             </table>
         </section>
-        <section>
+        <section class="past-section">
             <h4>Le visite passate da completare</h4>
             <h4 class="no-past-text no-data-text hide">Non c'è nessuna visita da completare</h4>
             <table class="past-table">
 
             </table>
         </section>
-        <section>
+        <section class="future-section">
             <h4>Le visite da effettuare</h4>
             <h4 class="no-future-text no-data-text hide">Non c'è nessuna visita da effettuare nei giorni futuri</h4>
             <table class="future-table">
 
             </table>
         </section>
-        <!--  <section>
-            <table class="visits-table">
+        <section class="filter-section hide">
+            <h4 class="find-text">Le visite trovate</h4>
+            <h4 class="no-filter-text no-data-text hide">Nessuna visita trovata</h4>
+            <table class="filter-table">
 
             </table>
-
-        </section> -->
+        </section>
     </main>
     <script src="./js/doctor-view.js" type="module"></script>
 </body>

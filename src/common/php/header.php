@@ -41,9 +41,24 @@
                     </div>
                     <div class="popUp-inner">
                         <div class="popUp-line">
-                            <h5 class="logout-btn">
+                            <h5 class="popUp-btn">
                                 <a href="../common/php/logout.php">Logout</a>
                             </h5>
+                            <?php
+                            if ($_COOKIE['user_type'] == 'medico') {
+                            ?>
+                                <h5 class="popUp-btn">
+                                    <a href="">Storico visite</a>
+                                </h5>
+                            <?php
+                            } else if ($_COOKIE['user_type'] == 'utente') {
+                            ?>
+                                <h5 class="popUp-btn">
+                                    <a href="">Storico prenotazioni</a>
+                                </h5>
+                            <?php
+                            }
+                            ?>
                         </div>
                     </div>
                 </div>
