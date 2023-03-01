@@ -52,7 +52,7 @@ class FilterManager {
                         let parseData = JSON.parse(response.data);
                         let rowIndex = 0;
                         parseData.forEach(data => {
-                            this.visitManager.setRowData(data["specie"], data["razza"], data["motivazione"], data["descrizione"], data["data"], data["ora"], data["gravita"], data["stato"], rowIndex, data["idPrenotazione"]);
+                            this.visitManager.setRowData(data["specie"], data["razza"], data["motivazione"], data["descrizione"], new Date(data["data"]).toLocaleDateString("en-GB"), data["ora"], data["gravita"], data["stato"], rowIndex, data["idPrenotazione"]);
                             rowIndex++;
                         });
                     } else {
