@@ -46,7 +46,6 @@ class PastManager {
         const confirmBtns = this.tBody.querySelectorAll(".confirm-btn");
         confirmBtns.forEach(confirmBtn => {
             confirmBtn.addEventListener("click", (event) => {
-                confirmBtn.disabled = true;
                 location.href = "../visit-result-page/visit-result-page.php?prenotationId=" + event.target.id;
             })
         })

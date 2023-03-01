@@ -22,7 +22,37 @@
     $active = 'class="active-page"';
     require('../common/php/header.php');
     ?>
-    
+    <main>
+        <section>
+            <h4>Compila il risultato della visita</h4>
+            <div class="form-container">
+                <form method="post">
+                    <div class="row">
+                        <div class="input-container">
+                            <input type="text" class="motivation-text" required>
+                            <span>Motivazione</span>
+                        </div>
+                        <div class="input-container">
+                            <input type="text" class="diagnosis-text" required>
+                            <span>Diagnosi</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-container">
+                            <input type="text" class="cure-text" required>
+                            <span>Cura</span>
+                        </div>
+                        <div class="input-container">
+                            <input type="number" class="price-text" value="35" min="15" max="100" required>
+                            <span>Prezzo</span>
+                        </div>
+                    </div>
+                    <input type="submit" value="Conferma">
+                </form>
+            </div>
+        </section>
+    </main>
+    <script src="./js/visit-result-view.js" type="module"></script>
 </body>
 
 </html>

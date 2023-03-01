@@ -5,3 +5,10 @@
 .registration-container {
   text-align: center;
 }
+
+input:not(input[type="submit"]){
+  width: 400px;
+}
+input[type="submit"]{
+  width: 350px;
+}
