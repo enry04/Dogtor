@@ -20,7 +20,7 @@ class VisitBooked {
     }
 
     setRowData(species, breed, motivation, date, time, name, surname, state) {
-        let data = [species + ", " + breed, motivation, date + " " + time, name + " " + surname, state];
+        let data = [species + ", " + breed, motivation, date + " alle " + time, name + " " + surname, state];
         let row = this.tBody.insertRow();
         for (let i = 0; i < this.headerValues.length; i++) {
             let td = document.createElement("td");

@@ -4,6 +4,7 @@ import VisitBooked from "./visit-booked-manager.js";
 
 const table = document.querySelector("table");
 const bookedText = document.querySelector(".booked-visits-text");
+const noDataText = document.querySelector(".no-data-text");
 let prenData = {
     userId: CookieManager.getCookie("user_id"),
 };
@@ -11,6 +12,7 @@ await FetchUtil.postData("./php/read-prenotations.php", prenData).then((response
     if (response.status == "success") {
         bookedText.classList.toggle("hide", false);
         table.classList.toggle("hide", false);
+        noDataText.classList.toggle("hide", true);
         const bookedVisitManager = new VisitBooked(table);
         bookedVisitManager.init();
         let parseData = JSON.parse(response.data);
@@ -22,5 +24,6 @@ await FetchUtil.postData("./php/read-prenotations.php", prenData).then((response
         console.log("error");
         bookedText.classList.toggle("hide", true);
         table.classList.toggle("hide", true);
+        noDataText.classList.toggle("hide", false);
     }
 });

@@ -20,7 +20,7 @@ class CompletedVisitManager {
     }
 
     setRowData(species, breed, motivation, date, time, diagnosis, cure, price) {
-        let data = [species + ", " + breed, motivation, date + " " + time, diagnosis, cure, price + "Є"];
+        let data = [species + ", " + breed, motivation, date + " alle " + time, diagnosis, cure, price + "Є"];
         let row = this.tBody.insertRow();
         for (let i = 0; i < this.headerValues.length; i++) {
             let td = document.createElement("td");

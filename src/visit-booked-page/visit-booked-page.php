@@ -25,7 +25,7 @@
     <main>
         <section>
             <h4 class="booked-visits-text">Le visite prenotate</h4>
-            <h4 class="no-data-text hide"></h4>
+            <h4 class="no-data-text hide">Nessuna visita prenotata</h4>
             <table>
 
             </table>
