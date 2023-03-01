@@ -1,7 +1,7 @@
-class CompletedVisitManager {
+class VisitBooked {
     constructor(tableElement) {
         this.rootElement = tableElement;
-        this.headerValues = ["Paziente", "Motivazione", "Data", "Diagnosi", "Cura", "Prezzo"];
+        this.headerValues = ["Paziente", "Motivazione", "Data", "Accompagnatore", "Stato"];
         this.tHead = this.rootElement.createTHead();
         this.tBody = this.rootElement.createTBody();
     }
@@ -19,8 +19,8 @@ class CompletedVisitManager {
         }
     }
 
-    setRowData(species, breed, motivation, date, time, diagnosis, cure, price) {
-        let data = [species + ", " + breed, motivation, date + " alle " + time, diagnosis, cure, price + "Є"];
+    setRowData(species, breed, motivation, date, time, name, surname, state) {
+        let data = [species + ", " + breed, motivation, date + " alle " + time, name + " " + surname, state];
         let row = this.tBody.insertRow();
         for (let i = 0; i < this.headerValues.length; i++) {
             let td = document.createElement("td");
@@ -30,4 +30,4 @@ class CompletedVisitManager {
     }
 }
 
-export default CompletedVisitManager;
+export default VisitBooked;

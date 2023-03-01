@@ -6,6 +6,7 @@ class ModalManager {
     this.modalContainer = this.rootElement.querySelector(".modal-container");
     this.modalContent = this.rootElement.querySelector(".modal-content");
     this.modalContent.innerHTML = title;
+    this.rootElement.classList.toggle("hide", false);
     this.rootElement.classList.toggle("modal-hide", false);
     this.rootElement.classList.toggle("modal-show", true);
     const elements = {

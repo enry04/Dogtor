@@ -30,3 +30,7 @@
   text-align: center;
   position: relative;
 }
+
+.hide{
+  display: none;
+}
