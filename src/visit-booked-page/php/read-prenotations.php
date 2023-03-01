@@ -10,7 +10,7 @@ $data = json_decode($json);
 
 $userId = $data->userId;
 
-$query = $pdo->prepare("SELECT * FROM tPrenotazione INNER JOIN tAnimale ON tPrenotazione.idAnimale = tAnimale.id INNER JOIN tUtente ON tAnimale.idProprietario = tUtente.id WHERE tUtente.id = :userId");
+$query = $pdo->prepare("SELECT * FROM tPrenotazione INNER JOIN tAnimale ON tPrenotazione.idAnimale = tAnimale.id INNER JOIN tUtente ON tAnimale.idProprietario = tUtente.id WHERE tUtente.id = :userId ORDER BY data DESC, ora DESC");
 $query->execute(['userId' => $userId]);
 $prenotationData = $query->fetchAll();
 $result = null;

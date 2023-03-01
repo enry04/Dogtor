@@ -135,7 +135,9 @@ class FormManager {
           });
         }
       });
-      if(isValid){
+      if (isValid) {
+        location.href = "../visit-booked-page/visit-booked-page.php";
+        this.elements.errorInfo.textContent = "";
         this.elements.form.reset();
       }
     });
