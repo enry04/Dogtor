@@ -54,7 +54,7 @@
                             } else if ($_COOKIE['user_type'] == 'utente') {
                             ?>
                                 <h5 class="popUp-btn">
-                                    <a href="">Storico prenotazioni</a>
+                                    <a href="../visit-booked-page/visit-booked-page.php">Storico prenotazioni</a>
                                 </h5>
                             <?php
                             }
