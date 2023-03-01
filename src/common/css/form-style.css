@@ -52,7 +52,7 @@ input:focus~span {
 input,
 textarea {
   background: transparent;
-  width: 400px;
+  width: 300px;
   height: 45px;
   border: solid #272343 2px;
   border-radius: 10px;
