@@ -1,0 +1,13 @@
+.search-btn{
+    width: 150px;
+}
+
+section{
+    margin: 100px 0 100px 0;
+}
+
+section:nth-child(2){
+    background-color: #e3f6f5;
+    padding: 30px;
+    border-radius: 3px;
+}
