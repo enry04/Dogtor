@@ -63,6 +63,8 @@ table td {
 
 .table-btn{
   width: 150px;
+  font-size: 18px;
+  font-weight: 100;
 }
 
 .details-btn:hover{
