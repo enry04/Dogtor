@@ -47,6 +47,7 @@ class FormManager {
   initEventListeners() {
     this.elements.firstStep.nextBtn.addEventListener("click", () => {
       if (this.isStepValid()) {
+        this.elements.errorInfo.textContent = "";
         this.firstStepData = {
           patient: this.elements.firstStep.patientText.value,
           birth: this.elements.firstStep.birthDate.value,
@@ -59,6 +60,8 @@ class FormManager {
         };
         this.currentTab++;
         this.showStep();
+      }else {
+        this.elements.errorInfo.textContent = "Compila i campi prima di proseguire";
       }
     });
     this.elements.secondStep.previousBtn.addEventListener("click", () => {
